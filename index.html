@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dev with Kyzel</title>
+</head>
+<body>
+
+    <div id="intro">
+        Hey, I am a freshman at University of Waterloo with development hobbies!
+    </div>
+
+    <div id="profile">
+        <div id="name">
+            Tuong Luu<br>
+            <div id="prof">(Honour Mathematics / Computational Mathematics)</div>
+        </div>
+        <img id="avt" src="/img/avt.png" alt="Profile Picture">
+    </div>
+
+    <div class="wrapper">
+        <div class="header">Todo List</div>
+        <div class="content">
+            <div id="form">
+                <input type="text" class="textbox" id="new-todo">
+                <button class="clickable" onclick="addTodo(document.querySelector('#new-todo').value)">Add Todo</button>
+                <button class="clickable" onclick="clearTodo()">Clear Todo</button>
+            </div>
+            <ul style="background-color: #496780;" id="todo-list">
+                Things to do:
+            </ul>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="header">Work</div>
+        <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quibusdam tempore amet
+            earum fugiat quisquam pariatur voluptatibus perspiciatis modi ab quaerat laboriosam voluptates
+            labore veritatis, molestiae nam at.
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="header">About</div>
+        <div class="content">
+            <a class="about-clickable" href="https://github.com/luut189">
+                <i class="fa fa-github"></i>@luut189</a>
+            <a class="about-clickable" href="mailto:minhtuongluu74@gmail.com">
+                <i class="fa fa-envelope"></i>minhtuongluu74@gmail.com</a>
+            <a class="about-clickable" href="https://www.instagram.com/_kyzeeeeel/?hl=en">
+                <i class="fa fa-instagram"></i>@_kyzeeeeel</i></a>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

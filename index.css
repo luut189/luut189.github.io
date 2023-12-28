@@ -1,0 +1,115 @@
+* {
+    text-decoration: none;
+    background-color: #55738d;
+    color: #EEF5FF;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-size: 2vw;
+    margin: 1rem;
+    border-radius: 15px;
+    display: flexbox;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#intro {
+    margin: 2rem;
+    padding: 0.75rem;
+    background-color: #6b8faf;
+    text-align: center;
+}
+
+#profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#name {
+    padding: 0.75rem;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+#prof {
+    font-weight: normal;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+#avt {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100px;
+    border-style: solid;
+}
+
+#form {
+    background-color: #496780;
+    display: flex;
+}
+
+#todo-list {
+    padding: 1rem;
+}
+
+#todo-list li {
+    padding: 0.5rem;
+}
+
+#todo-list li:hover {
+    background-color: #496174;
+    text-decoration: line-through;
+}
+
+/* General wrapper */
+.wrapper {
+    padding: 0.75rem;
+    /* background-color: red; */
+}
+
+.header {
+    border-bottom-style: solid;
+    border-radius: 0;
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
+.content {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.textbox {
+    background-color: #62839e;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border: none;
+}
+
+.clickable {
+    background-color: #62839e;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border: none;
+}
+
+.clickable:hover {
+    background-color: #496174;
+}
+/*  **  */
+
+/* About */
+.about-clickable {
+    color: #aad7ff;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    margin: 0;
+    border: none;
+    float: left;
+    clear: left;
+}
+
+.about-clickable:hover {
+    background-color: #496174;
+}
