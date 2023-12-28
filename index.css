@@ -1,10 +1,14 @@
+:root {
+    --padding: 1vw;
+    --margin: 6vw;
+}
+
 * {
     text-decoration: none;
     background-color: #55738d;
     color: #EEF5FF;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    font-size: 2vw;
+    font-size: 20px;
     margin: 1rem;
     border-radius: 15px;
     display: flexbox;
@@ -12,9 +16,13 @@
     align-items: center;
 }
 
+.wrapper, .header, .content, #intro, #profile, #name, #prof, #avt {
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+}
+
 #intro {
-    margin: 2rem;
-    padding: 0.75rem;
+    padding: var(--padding);
     background-color: #6b8faf;
     text-align: center;
 }
@@ -26,8 +34,8 @@
 }
 
 #name {
-    padding: 0.75rem;
-    font-size: 5vw;
+    padding: var(--padding);
+    font-size: 200%;
     font-weight: bold;
 }
 
@@ -47,6 +55,8 @@
 #form {
     background-color: #496780;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #todo-list {
@@ -55,6 +65,7 @@
 
 #todo-list li {
     padding: 0.5rem;
+    word-wrap: break-word;
 }
 
 #todo-list li:hover {
@@ -64,33 +75,32 @@
 
 /* General wrapper */
 .wrapper {
-    padding: 0.75rem;
+    padding: var(--padding);
     /* background-color: red; */
 }
 
 .header {
     border-bottom-style: solid;
     border-radius: 0;
-    font-size: 2.5vw;
+    font-size: 150%;
     font-weight: bold;
 }
 
 .content {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
 }
 
 .textbox {
     background-color: #62839e;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    width: 75%;
+    padding: var(--padding);
     border: none;
 }
 
 .clickable {
     background-color: #62839e;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding: var(--padding);
     border: none;
 }
 
@@ -102,8 +112,8 @@
 /* About */
 .about-clickable {
     color: #aad7ff;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
     margin: 0;
     border: none;
     float: left;
