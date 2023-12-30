@@ -50,12 +50,19 @@
     align-items: center;
 }
 
-#nav-bar button {
-    padding: var(--padding);
+#nav-bar button svg {
+    padding: 0;
+    margin: 0;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    fill: currentColor;
+    overflow: hidden;
+    background: var(--box-color)
 }
 
-#nav-bar button:hover {
-    background-color: var(--wrapper-color);
+#nav-bar button:hover svg {
+    background: var(--hover-color);
 }
 
 #intro {
@@ -143,6 +150,7 @@
 
 .clickable:hover {
     background-color: var(--hover-color);
+    cursor: pointer;
 }
 /*  **  */
 
