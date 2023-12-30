@@ -3,10 +3,30 @@
     --margin: 6vw;
 }
 
+.theme-dark {
+    --font-color: #EEF5FF;
+    --hyperlink-color: #aad7ff;
+    --background-color: #55738d;
+    --intro-box-color: #6b8faf;
+    --wrapper-color: #496780;
+    --hover-color: #496174;
+    --box-color: #62839e;
+}
+
+.theme-light {
+    --font-color: #484b6a;
+    --background-color: #e4e5f1;
+    --intro-box-color: #f8f8f8;
+    --wrapper-color: #c2c3d3;
+    --hover-color: #d6d7e4;
+    --box-color: #f1f1f1;
+}
+
 * {
     text-decoration: none;
-    background-color: #55738d;
-    color: #EEF5FF;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    border-color: var(--font-color);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
     margin: 1rem;
@@ -21,9 +41,25 @@
     margin-right: var(--margin);
 }
 
+#nav-bar {
+    background-color: var(--wrapper-color);
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav-bar button {
+    padding: var(--padding);
+}
+
+#nav-bar button:hover {
+    background-color: var(--wrapper-color);
+}
+
 #intro {
     padding: var(--padding);
-    background-color: #6b8faf;
+    background-color: var(--intro-box-color);
     text-align: center;
 }
 
@@ -53,7 +89,7 @@
 }
 
 #form {
-    background-color: #496780;
+    background-color: var(--wrapper-color);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -69,7 +105,7 @@
 }
 
 #todo-list li:hover {
-    background-color: #496174;
+    background-color: var(--hover-color);
     text-decoration: line-through;
 }
 
@@ -92,26 +128,26 @@
 }
 
 .textbox {
-    background-color: #62839e;
+    background-color: var(--box-color);
     width: 75%;
     padding: var(--padding);
     border: none;
 }
 
 .clickable {
-    background-color: #62839e;
+    background-color: var(--box-color);
     padding: var(--padding);
     border: none;
 }
 
 .clickable:hover {
-    background-color: #496174;
+    background-color: var(--hover-color);
 }
 /*  **  */
 
 /* About */
 .about-clickable {
-    color: #aad7ff;
+    color: var(--hyperlink-color);
     padding-left: var(--padding);
     padding-right: var(--padding);
     margin: 0;
@@ -121,5 +157,5 @@
 }
 
 .about-clickable:hover {
-    background-color: #496174;
+    background-color: var(--hover-color);
 }

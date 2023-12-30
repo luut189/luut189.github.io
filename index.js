@@ -3,9 +3,19 @@ const todoList = document.getElementById('todo-list');
 const existingTodo = JSON.parse(localStorage.getItem('todos'));
 const todoData = [];
 let currentIndex = -1;
+
+(function () {
+    if (document.documentElement.className === 'theme-dark') {
+        setTheme('theme-dark');
+    } else {
+        setTheme('theme-light');
+    }
+ })();
+
 existingTodo.forEach(todo => {
     addTodo(todo);
 });
+
 function addTodo(todoText) {
     if(todoText.length == 0) return;
     currentIndex++;
@@ -30,4 +40,16 @@ function addTodo(todoText) {
 function clearTodo() {
     localStorage.clear();
     todoList.innerHTML = "Things to do:";
+}
+
+function setTheme(themeName) {
+    const oppositeTheme = themeName === 'theme-dark' ? 'theme-light' : 'theme-dark';
+    localStorage.setItem('theme', themeName);
+    document.documentElement.className = themeName;
+    document.getElementById('theme-toggle').className = `clickable ${oppositeTheme}`;
+}
+
+function toggleTheme() {
+    const isDark = localStorage.getItem('theme') === 'theme-dark';
+    setTheme(isDark ? 'theme-light' : 'theme-dark');
 }

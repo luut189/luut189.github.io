@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,12 @@
     <title>Dev with Kyzel</title>
 </head>
 <body>
+    <div id="nav-bar">
+        <a href="/" class="clickable">Lorem Ipsum</a>
+        <a href="/" class="clickable">Lorem Ipsum</a>
+        <a href="/" class="clickable">Lorem Ipsum</a>
+        <button id="theme-toggle" class="clickable theme-light" onclick="toggleTheme()">O</button>
+    </div>
 
     <div id="intro">
         Hey, I am a freshman at University of Waterloo with development hobbies!
@@ -29,7 +35,7 @@
                 <button class="clickable" onclick="addTodo(document.querySelector('#new-todo').value)">Add Todo</button>
                 <button class="clickable" onclick="clearTodo()">Clear Todo</button>
             </div>
-            <ul style="background-color: #496780;" id="todo-list">
+            <ul style="background-color: var(--wrapper-color);" id="todo-list">
                 Things to do:
             </ul>
         </div>
