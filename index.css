@@ -15,6 +15,7 @@
 
 .theme-light {
     --font-color: #484b6a;
+    --hyperlink-color: #3d6d97;
     --background-color: #e4e5f1;
     --intro-box-color: #f8f8f8;
     --wrapper-color: #c2c3d3;
