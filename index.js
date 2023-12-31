@@ -66,16 +66,23 @@ function addTodo(todoText) {
 
     li.innerHTML = todoText;
     li.onclick = () => {
+        li.style = "transform: scale(0)";
         todoData.splice(currentIndex, 1);
         currentIndex--;
         localStorage.clear();
         localStorage.setItem("todos", JSON.stringify(todoData));
 
-        li.parentNode.removeChild(li);
+        setTimeout(() => {
+            li.parentNode.removeChild(li);
+        }, 200);
     };
     newTodo.value = "";
 
     todoList.appendChild(li);
+    li.style = "transform: scale(0)";
+    setTimeout(() => {
+        li.style = "transform: scale(1)";
+    }, 100);
     localStorage.setItem("todos", JSON.stringify(todoData));
 }
 
