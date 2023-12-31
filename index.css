@@ -179,3 +179,39 @@
 .about-clickable:hover {
     background-color: var(--hover-color);
 }
+
+.tooltip {
+    position: relative;
+    padding: var(--padding);
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    font-size: smaller;
+    visibility: hidden;
+    width: max-content;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    margin: 0;
+    padding: var(--padding);
+
+    position: absolute;
+    z-index: 1;
+    right: 105%;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}
+
+/* Position wrapper */
+.bottom-right {
+    position: fixed;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    bottom: 0;
+    right: 0;
+}

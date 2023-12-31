@@ -105,7 +105,8 @@ function setTheme(themeName) {
     document.documentElement.className = themeName;
     document.getElementById(
         'theme-toggle'
-    ).className = `clickable ${oppositeTheme}`;
+    ).classList.replace(themeName, oppositeTheme);
+    document.getElementById('theme-toggle-tooltip').innerHTML = `Switch ${oppositeTheme.split('-')[1]}`
 }
 
 function toggleTheme() {
