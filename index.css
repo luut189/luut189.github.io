@@ -35,6 +35,7 @@
     display: flexbox;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.2s ease-in-out;
 }
 
 .wrapper, .header, .content, #intro, #profile, #name, #prof, #avt {
