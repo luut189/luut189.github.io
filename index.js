@@ -69,7 +69,7 @@ function addTodo(todoText) {
         li.style = "transform: scale(0)";
         todoData.splice(currentIndex, 1);
         currentIndex--;
-        localStorage.clear();
+        localStorage.removeItem('todos');
         localStorage.setItem("todos", JSON.stringify(todoData));
 
         setTimeout(() => {
