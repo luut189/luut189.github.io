@@ -87,7 +87,7 @@ function addTodo(todoText) {
 }
 
 function clearTodo() {
-    localStorage.clear();
+    localStorage.removeItem('todos');
     todoList.innerHTML = "Things to do:";
 }
 
