@@ -47,8 +47,8 @@
     background-color: var(--wrapper-color);
     margin-top: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #nav-bar button svg {
@@ -70,6 +70,7 @@
     padding: var(--padding);
     background-color: var(--intro-box-color);
     text-align: center;
+    overflow-wrap: break-word;
 }
 
 #profile {
@@ -98,6 +99,7 @@
 }
 
 #form {
+    min-width: fit-content;
     background-color: var(--wrapper-color);
     display: flex;
     justify-content: center;
@@ -106,6 +108,7 @@
 
 #todo-list {
     padding: 1rem;
+    min-width: fit-content;
 }
 
 #todo-list li {
