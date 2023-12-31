@@ -1,83 +1,82 @@
-const newTodo = document.querySelector('#new-todo');
-const todoList = document.getElementById('todo-list');
-const existingTodo = JSON.parse(localStorage.getItem('todos'));
+const newTodo = document.querySelector("#new-todo");
+const todoList = document.getElementById("todo-list");
+const existingTodo = JSON.parse(localStorage.getItem("todos"));
 const todoData = [];
 let currentIndex = -1;
 
-const http = 'https://';
-const linkSaverWrapper = document.getElementById('link-saver')
+const http = "https://";
+const linkSaverWrapper = document.getElementById("link-saver");
 const savedWebsite = [
     {
-        name: 'Facebook',
-        url: 'facebook.com'
+        name: "Facebook",
+        url: "facebook.com",
     },
     {
-        name: 'YouTube',
-        url: 'youtube.com'
-    }
+        name: "YouTube",
+        url: "youtube.com",
+    },
 ];
 
+(function () {
+    if (document.documentElement.className === "theme-dark") {
+        setTheme("theme-dark");
+    } else {
+        setTheme("theme-light");
+    }
+})();
 
 (function () {
-    if (document.documentElement.className === 'theme-dark') {
-        setTheme('theme-dark');
-    } else {
-        setTheme('theme-light');
-    }
- })();
-
- (function () {
-    savedWebsite.forEach(web => {
-        const link = document.createElement('a');
-        link.className = 'clickable';
-        link.href = http + web.url
+    savedWebsite.forEach((web) => {
+        const link = document.createElement("a");
+        link.className = "clickable";
+        link.href = http + web.url;
         link.innerHTML = web.name;
         linkSaverWrapper.appendChild(link);
-    })
- })();
+    });
+})();
 
-const anchorClickable = document.getElementsByTagName('a');
-const buttonClickable = document.getElementsByTagName('button');
-for(const anchor of anchorClickable) {
-    anchor.addEventListener('mouseover', () => {
-        anchor.style = 'transform: scale(0.8)';
-    })
-    anchor.addEventListener('mouseleave', () => {
-        anchor.style = 'transform: scale(1)';
-    })
+const anchorClickable = document.getElementsByTagName("a");
+const buttonClickable = document.getElementsByTagName("button");
+for (const anchor of anchorClickable) {
+    anchor.addEventListener("mouseover", () => {
+        anchor.style = "transform: scale(0.8)";
+    });
+    anchor.addEventListener("mouseleave", () => {
+        anchor.style = "transform: scale(1)";
+    });
 }
-for(const button of buttonClickable) {
-    button.addEventListener('click', () => {
-        button.style = 'transform: scale(0.8)';
+for (const button of buttonClickable) {
+    button.addEventListener("click", () => {
+        button.style = "transform: scale(0.8)";
         setTimeout(() => {
-            button.style = 'transform: scale(1)';
+            button.style = "transform: scale(1)";
         }, 200);
     });
 }
 
-existingTodo.forEach(todo => {
+existingTodo.forEach((todo) => {
     addTodo(todo);
 });
 
 function addTodo(todoText) {
-    if(todoText.length == 0) return;
+    if (todoText.length == 0) return;
     currentIndex++;
     todoData.push(todoText);
-    const li = document.createElement('li');
+    const li = document.createElement("li");
 
     li.innerHTML = todoText;
     li.onclick = () => {
         todoData.splice(currentIndex, 1);
         currentIndex--;
         localStorage.clear();
-        localStorage.setItem('todos', JSON.stringify(todoData));
+        localStorage.setItem("todos", JSON.stringify(todoData));
 
         li.parentNode.removeChild(li);
-    }
-    newTodo.value = '';
+    };
+    newTodo.value = "";
 
     todoList.appendChild(li);
-    localStorage.setItem('todos', JSON.stringify(todoData));
+    localStorage.setItem("todos", JSON.stringify(todoData));
 }
 
 function clearTodo() {
@@ -86,13 +85,16 @@ function clearTodo() {
 }
 
 function setTheme(themeName) {
-    const oppositeTheme = themeName === 'theme-dark' ? 'theme-light' : 'theme-dark';
-    localStorage.setItem('theme', themeName);
+    const oppositeTheme =
+        themeName === "theme-dark" ? "theme-light" : "theme-dark";
+    localStorage.setItem("theme", themeName);
     document.documentElement.className = themeName;
-    document.getElementById('theme-toggle').className = `clickable ${oppositeTheme}`;
+    document.getElementById(
+        "theme-toggle"
+    ).className = `clickable ${oppositeTheme}`;
 }
 
 function toggleTheme() {
-    const isDark = localStorage.getItem('theme') === 'theme-dark';
-    setTheme(isDark ? 'theme-light' : 'theme-dark');
+    const isDark = localStorage.getItem("theme") === "theme-dark";
+    setTheme(isDark ? "theme-light" : "theme-dark");
 }
