@@ -32,7 +32,6 @@
     font-size: 20px;
     margin: 1rem;
     border-radius: 15px;
-    display: flexbox;
     justify-content: space-between;
     align-items: center;
     transition: all 0.2s ease-in-out;
@@ -115,6 +114,7 @@
 
 #todo-list {
     padding: 1rem;
+    background-color: var(--wrapper-color);
     min-width: fit-content;
 }
 
@@ -189,11 +189,11 @@
 .tooltip .tooltip-text {
     font-size: smaller;
     visibility: hidden;
+    opacity: 0;
     width: max-content;
     background-color: #000000;
     color: #fff;
     text-align: center;
-    border-radius: 6px;
     margin: 0;
     padding: var(--padding);
 
@@ -204,13 +204,12 @@
 
 .tooltip:hover .tooltip-text {
     visibility: visible;
+    opacity: 100;
 }
 
-/* Position wrapper */
+/* Wrapper */
 .bottom-right {
     position: fixed;
-    width: 3rem;
-    height: 3rem;
     padding: 0;
     bottom: 0;
     right: 0;
