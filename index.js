@@ -1,3 +1,5 @@
+const elementDelay = 200;
+
 const newTodo = document.querySelector('#new-todo');
 const todoList = document.getElementById('todo-list');
 const existingTodo = JSON.parse(localStorage.getItem('todos'));
@@ -21,11 +23,17 @@ const defaultTheme = 'theme-dark';
 const theme = localStorage.getItem('theme') || defaultTheme;
 setTheme(theme);
 
+let linkDelay = elementDelay;
 savedWebsite.forEach((web) => {
     const link = document.createElement('a');
     link.className = 'clickable';
     link.href = http + web.url;
     link.innerHTML = web.name;
+    link.style = 'transform: scale(0)';
+    setTimeout(() => {
+        link.style = 'transform: scale(1)';
+    }, linkDelay);
+    linkDelay += elementDelay;
     linkSaverWrapper.appendChild(link);
 });
 
@@ -48,11 +56,14 @@ for (const button of buttonClickable) {
     });
 }
 
+let todoDelay = elementDelay;
 existingTodo.forEach((todo) => {
-    addTodo(todo);
+    addTodo(todo, todoDelay);
+    console.log(todoDelay);
+    todoDelay += elementDelay;
 });
 
-function addTodo(todoText) {
+function addTodo(todoText, delay = 100) {
     if (todoText.length == 0) return;
     currentIndex++;
     todoData.push(todoText);
@@ -72,29 +83,28 @@ function addTodo(todoText) {
     };
     newTodo.value = '';
 
-    todoList.appendChild(li);
     li.style = 'transform: scale(0)';
     setTimeout(() => {
         li.style = 'transform: scale(1)';
-    }, 100);
+    }, delay);
+    todoList.appendChild(li);
     localStorage.setItem('todos', JSON.stringify(todoData));
 }
 
 function clearTodo() {
-    const baseDelay = 100;
-    let delay = baseDelay;
-
+    let delay = elementDelay;
+    todoData.splice(0, todoData.length);
     localStorage.removeItem('todos');
     const allTodos = todoList.children;
-    for (const todo of allTodos) {
+    for (let i = allTodos.length - 1; i >= 0; i--) {
         setTimeout(() => {
-            todo.style = 'transform: scale(0)';
+            allTodos[i].style = 'transform: scale(0)';
         }, delay);
-        delay += baseDelay;
+        delay += elementDelay;
         setTimeout(() => {
-            todoList.removeChild(todo);
+            todoList.removeChild(allTodos[i]);
         }, delay + 100);
-        delay += baseDelay;
+        delay += elementDelay;
     }
 }
 
@@ -103,10 +113,12 @@ function setTheme(themeName) {
         themeName === 'theme-dark' ? 'theme-light' : 'theme-dark';
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
-    document.getElementById(
-        'theme-toggle'
-    ).classList.replace(themeName, oppositeTheme);
-    document.getElementById('theme-toggle-tooltip').innerHTML = `Switch ${oppositeTheme.split('-')[1]}`
+    document
+        .getElementById('theme-toggle')
+        .classList.replace(themeName, oppositeTheme);
+    document.getElementById('theme-toggle-tooltip').innerHTML = `Switch ${
+        oppositeTheme.replace('-', ' ')
+    }`;
 }
 
 function toggleTheme() {
