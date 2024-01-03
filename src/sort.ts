@@ -1,4 +1,11 @@
 const wrapper = document.getElementById('sorting') as HTMLDivElement;
+const startSortButton = document.getElementById(
+    'sort-start'
+) as HTMLButtonElement;
+const startRandomButton = document.getElementById(
+    'random-start'
+) as HTMLButtonElement;
+const resetButton = document.getElementById('reset') as HTMLButtonElement;
 const defaultWidth = 5;
 const scale = 20;
 let totalBar = document.documentElement.offsetWidth / scale;
@@ -6,6 +13,16 @@ let barValue: number[] = [];
 
 addEventListener('resize', initBar);
 initBar();
+
+startSortButton.addEventListener('click', () => {
+    sortBar();
+});
+startRandomButton.addEventListener('click', () => {
+    randomizeBar();
+});
+resetButton.addEventListener('click', () => {
+    initBar();
+});
 
 function getRandomInt(min: number, max: number) {
     min = Math.ceil(min);

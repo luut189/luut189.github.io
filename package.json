@@ -6,8 +6,14 @@
     "devDependencies": {
         "typescript": "^5.3.3"
     },
-    "scripts": {},
+    "scripts": {
+        "start": "vite --port 8080",
+        "build": "vite build"
+    },
     "keywords": [],
     "author": "Tuong Luu",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "vite": "^5.0.10"
+    }
 }
