@@ -5,22 +5,28 @@
 
 .theme-dark {
     --font-color: #eef5ff;
+    --placeholder-color: #dbe2ec;
     --hyperlink-color: #aad7ff;
     --background-color: #55738d;
     --intro-box-color: #6b8faf;
     --wrapper-color: #496780;
     --hover-color: #496174;
     --box-color: #62839e;
+
+    --bar-color: #2d3b47;
 }
 
 .theme-light {
     --font-color: #484b6a;
+    --placeholder-color: #3b3d57;
     --hyperlink-color: #3d6d97;
     --background-color: #e4e5f1;
     --intro-box-color: #f8f8f8;
     --wrapper-color: #c2c3d3;
     --hover-color: #d6d7e4;
     --box-color: #f1f1f1;
+
+    --bar-color: #909099;
 }
 
 * {
@@ -35,6 +41,10 @@
     justify-content: space-between;
     align-items: center;
     transition: all 0.2s ease-in-out;
+}
+
+input::placeholder {
+    color: var(--placeholder-color);
 }
 
 .wrapper,
@@ -148,7 +158,7 @@
 
 .textbox {
     background-color: var(--box-color);
-    width: 75%;
+    width: 40vw;
     padding: var(--padding);
     border: none;
 }

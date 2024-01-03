@@ -65,7 +65,7 @@
             <div class="header">To-do List</div>
             <div class="content">
                 <div id="form">
-                    <input type="text" class="textbox" id="new-todo" />
+                    <input type="text" class="textbox" id="new-todo" placeholder="📃 Add new to do"/>
                     <button
                         class="clickable"
                         onclick="addTodo(document.querySelector('#new-todo').value)">
@@ -82,12 +82,42 @@
         </div>
 
         <div class="wrapper">
-            <div class="header">Test Canvas</div>
-            <div class="content">
-                <canvas id="tic-tac-toe"></canvas>
+            <div class="header">Sorting Visualizer (Bubble Sort only)</div>
+            <div
+                class="content"
+                style="padding: 1rem; background-color: var(--wrapper-color)">
+                <div
+                    id="sorting"
+                    style="
+                        display: flex;
+                        position: relative;
+                        align-items: self-end;
+                        background-color: var(--wrapper-color);
+                    "></div>
+                <div
+                    class="content"
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        background-color: var(--wrapper-color);
+                    ">
+                    <button
+                        class="clickable"
+                        onclick="sortBar()">
+                        Sort
+                    </button>
+                    <button
+                        class="clickable"
+                        onclick="randomizeBar()">
+                        Randomize
+                    </button>
+                    <button class="clickable" onclick="createBar()">
+                        Reset
+                    </button>
+                </div>
             </div>
+            <script src="js/sort.js"></script>
         </div>
-        <script src="js/game.js"></script>
 
         <div class="wrapper">
             <div class="header">About</div>
