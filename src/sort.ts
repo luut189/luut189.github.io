@@ -1,8 +1,11 @@
 const wrapper = document.getElementById('sorting') as HTMLDivElement;
 const defaultWidth = 5;
-const totalBar = 50;
+const scale = 20;
+let totalBar = document.documentElement.offsetWidth / scale;
 let barValue: number[] = [];
-createBar();
+
+addEventListener('resize', initBar);
+initBar();
 
 function getRandomInt(min: number, max: number) {
     min = Math.ceil(min);
@@ -16,30 +19,15 @@ function getBarStyle(value: number, color: string) {
     }px; height: ${value}px; background-color: ${color}`;
 }
 
-function swap(
-    colorA: string,
-    colorB: string,
-    nodeA: HTMLElement,
-    nodeB: HTMLElement
-) {
-    nodeA.style.backgroundColor = colorA;
-    nodeB.style.backgroundColor = colorB;
+function colorBar(color: string, bar: HTMLElement, delay = 1) {
+    bar.style.backgroundColor = color;
     setTimeout(() => {
-        nodeA.style.backgroundColor = 'var(--bar-color)';
-        nodeB.style.backgroundColor = 'var(--bar-color)';
-    }, 1);
-    const parentA = nodeA.parentNode;
-    const siblingA = nodeA.nextSibling === nodeB ? nodeA : nodeA.nextSibling;
-
-    // Move `nodeA` to before the `nodeB`
-    nodeB.parentNode?.insertBefore(nodeA, nodeB);
-
-    // Move `nodeB` to before the sibling of `nodeA`
-    parentA?.insertBefore(nodeB, siblingA);
+        bar.style.backgroundColor = 'var(--bar-color)';
+    }, delay);
 }
 
-function createBar() {
-    wrapper.replaceChildren();
+function initBar() {
+    totalBar = document.documentElement.offsetWidth / scale;
     let id = window.setTimeout(function () {}, 0);
     while (id--) {
         window.clearTimeout(id);
@@ -48,29 +36,60 @@ function createBar() {
     for (let i = 0; i < totalBar; i++) {
         const value = getRandomInt(50, 300);
         barValue.push(value);
+    }
+    recreateBar(barValue);
+}
+
+function recreateBar(barValue: number[]) {
+    wrapper.replaceChildren();
+    barValue.forEach((value) => {
         const bar = document.createElement('div');
         bar.setAttribute('style', getBarStyle(value, 'var(--bar-color)'));
         wrapper.appendChild(bar);
+    });
+}
+
+function smoothBarColor(color: string) {
+    let index = 0;
+    flashBar();
+    function flashBar() {
+        const bars = wrapper.children;
+        colorBar(color, bars.item(index) as HTMLElement, 200);
+        index++;
+        if (index < totalBar) setTimeout(flashBar, 10);
     }
 }
 
+function isSorted() {
+    let sorted = true;
+    for (let i = 0; i < barValue.length - 1; i++) {
+        if (barValue[i] > barValue[i + 1]) {
+            sorted = false;
+            break;
+        }
+    }
+    if (sorted) {
+        smoothBarColor('green');
+    }
+    return sorted;
+}
+
 function sortBar(delay = 1) {
+    if (isSorted()) return;
     let i = 0,
         j = 0;
     const bars = wrapper.children;
     innerLoop();
 
     function innerLoop() {
+        if (isSorted()) return;
         if (barValue[j] > barValue[j + 1]) {
-            swap(
-                'red',
-                'green',
-                bars.item(j) as HTMLElement,
-                bars.item(j + 1) as HTMLElement
-            );
             let temp = barValue[j];
             barValue[j] = barValue[j + 1];
             barValue[j + 1] = temp;
+            recreateBar(barValue);
+            colorBar('red', bars.item(j) as HTMLElement);
+            colorBar('green', bars.item(j + 1) as HTMLElement);
         }
         j++;
         if (j < bars.length - i - 1) {
@@ -93,17 +112,15 @@ function randomizeBar(delay = 1) {
     innerLoop();
 
     function innerLoop() {
-        const randomIndex = getRandomInt(0, wrapper.childElementCount);
-        swap(
-            'purple',
-            'cyan',
-            bars.item(i) as HTMLElement,
-            bars.item(randomIndex) as HTMLElement
-        );
+        const randomIndex = getRandomInt(0, totalBar);
         let temp = barValue[i];
         barValue[i] = barValue[randomIndex];
         barValue[randomIndex] = temp;
+        recreateBar(barValue);
+        colorBar('purple', bars.item(i) as HTMLElement);
+        colorBar('cyan', bars.item(randomIndex) as HTMLElement);
         i++;
-        if (i < wrapper.childElementCount) setTimeout(innerLoop, delay);
+        if (i < totalBar) setTimeout(innerLoop, delay);
+        else smoothBarColor('var(--font-color)');
     }
 }
