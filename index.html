@@ -20,10 +20,7 @@
             <a href="/" class="clickable">Resume (placeholder)</a>
             <a href="/" class="clickable">Lorem Ipsum</a>
             <a href="/" class="clickable">Lorem Ipsum</a>
-            <button
-                id="theme-toggle"
-                class="clickable tooltip theme-light"
-                onclick="toggleTheme()">
+            <button id="theme-toggle" class="clickable tooltip theme-light">
                 <span id="theme-toggle-tooltip" class="tooltip-text"></span>
                 <svg
                     id="theme-icon"
@@ -65,13 +62,13 @@
             <div class="header">To-do List</div>
             <div class="content">
                 <div id="form">
-                    <input type="text" class="textbox" id="new-todo" placeholder="📃 Add new to do"/>
-                    <button
-                        class="clickable"
-                        onclick="addTodo(document.querySelector('#new-todo').value)">
-                        Add To-do
-                    </button>
-                    <button class="clickable" onclick="clearTodo()">
+                    <input
+                        type="text"
+                        class="textbox"
+                        id="new-todo"
+                        placeholder="📃 Add new to do" />
+                    <button class="clickable" id="add-todo">Add To-do</button>
+                    <button class="clickable" id="clear-todo">
                         Clear To-do
                     </button>
                 </div>
@@ -101,22 +98,14 @@
                         justify-content: center;
                         background-color: var(--wrapper-color);
                     ">
-                    <button
-                        class="clickable"
-                        onclick="sortBar()">
-                        Sort
-                    </button>
-                    <button
-                        class="clickable"
-                        onclick="randomizeBar()">
+                    <button class="clickable" id="sort-start">Sort</button>
+                    <button class="clickable" id="random-start">
                         Randomize
                     </button>
-                    <button class="clickable" onclick="initBar()">
-                        Reset
-                    </button>
+                    <button class="clickable" id="reset">Reset</button>
                 </div>
             </div>
-            <script src="js/sort.js"></script>
+            <script type="module" src="/src/sort.ts"></script>
         </div>
 
         <div class="wrapper">
@@ -154,6 +143,6 @@
             <span class="tooltip-text"> This is a tooltip! </span>
         </div>
 
-        <script src="js/index.js"></script>
+        <script type="module" src="/src/index.ts"></script>
     </body>
 </html>

@@ -2,10 +2,23 @@
 const elementDelay = 200;
 
 const newTodo = document.querySelector('#new-todo') as HTMLInputElement;
+const themeToggleButton = document.getElementById(
+    'theme-toggle'
+) as HTMLButtonElement;
 const todoList = document.getElementById('todo-list') as HTMLUListElement;
+const addTodoButton = document.getElementById('add-todo') as HTMLButtonElement;
+const clearTodoButton = document.getElementById(
+    'clear-todo'
+) as HTMLButtonElement;
 const existingTodo = JSON.parse(localStorage.getItem('todos') || '{}');
 const todoData: string[] = [];
 let currentIndex = -1;
+
+themeToggleButton.addEventListener('click', toggleTheme);
+addTodoButton.addEventListener('click', () => {
+    addTodo(newTodo.value);
+});
+clearTodoButton.addEventListener('click', clearTodo);
 
 const http = 'https://';
 const linkSaverWrapper = document.getElementById(
@@ -118,10 +131,7 @@ function setTheme(themeName: string) {
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
 
-    const toggleButton = document.getElementById(
-        'theme-toggle'
-    ) as HTMLButtonElement;
-    toggleButton.classList.replace(themeName, oppositeTheme);
+    themeToggleButton.classList.replace(themeName, oppositeTheme);
 
     const toggleButtonTooltip = document.getElementById(
         'theme-toggle-tooltip'
