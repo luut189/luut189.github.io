@@ -13,7 +13,7 @@
             rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="/assets/favicon-12hfyutA.png" />
         <title>Dev with Kyzel</title>
-      <script type="module" crossorigin src="/assets/index-GGn8AEx9.js"></script>
+      <script type="module" crossorigin src="/assets/index-zrGW27C8.js"></script>
       <link rel="stylesheet" crossorigin href="/assets/index-qtspItXd.css">
     </head>
     <body>
@@ -66,13 +66,13 @@
             <div class="header">To-do List</div>
             <div class="content">
                 <div id="form">
-                    <input type="text" class="textbox" id="new-todo" placeholder="📃 Add new to do"/>
-                    <button
-                        class="clickable"
-                        onclick="addTodo(document.querySelector('#new-todo').value)">
-                        Add To-do
-                    </button>
-                    <button class="clickable" onclick="clearTodo()">
+                    <input
+                        type="text"
+                        class="textbox"
+                        id="new-todo"
+                        placeholder="📃 Add new to do" />
+                    <button class="clickable" id="add-todo">Add To-do</button>
+                    <button class="clickable" id="clear-todo">
                         Clear To-do
                     </button>
                 </div>
@@ -102,19 +102,11 @@
                         justify-content: center;
                         background-color: var(--wrapper-color);
                     ">
-                    <button
-                        class="clickable"
-                        onclick="sortBar()">
-                        Sort
-                    </button>
-                    <button
-                        class="clickable"
-                        onclick="randomizeBar()">
+                    <button class="clickable" id="sort-start">Sort</button>
+                    <button class="clickable" id="random-start">
                         Randomize
                     </button>
-                    <button class="clickable" onclick="initBar()">
-                        Reset
-                    </button>
+                    <button class="clickable" id="reset">Reset</button>
                 </div>
             </div>
         </div>
