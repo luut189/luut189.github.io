@@ -11,6 +11,12 @@ const scale = 20;
 let totalBar = document.documentElement.offsetWidth / scale;
 let barValue: number[] = [];
 
+const chosenSortingAlgorithm = 'insertionSort'; // use a HTML selection element later
+const sortingFunction = {
+    bubbleSort: bubbleSort,
+    insertionSort: insertionSort,
+};
+
 addEventListener('resize', initBar);
 initBar();
 
@@ -77,7 +83,7 @@ function smoothBarColor(color: string) {
     }
 }
 
-function isSorted() {
+function isSorted(): boolean {
     let sorted = true;
     for (let i = 0; i < barValue.length - 1; i++) {
         if (barValue[i] > barValue[i + 1]) {
@@ -91,8 +97,7 @@ function isSorted() {
     return sorted;
 }
 
-function sortBar(delay = 1) {
-    if (isSorted()) return;
+function bubbleSort(delay: number) {
     let i = 0,
         j = 0;
     const bars = wrapper.children;
@@ -117,6 +122,37 @@ function sortBar(delay = 1) {
             setTimeout(innerLoop, delay);
         }
     }
+}
+
+function insertionSort(delay: number) {
+    const bars = wrapper.children;
+    let i = 1;
+    let key = barValue[i];
+    let j = i - 1;
+    innerLoop();
+    function innerLoop() {
+        if (j >= 0 && barValue[j] > key) {
+            barValue[j + 1] = barValue[j];
+            recreateBar(barValue);
+            j--;
+            setTimeout(innerLoop, delay);
+        } else {
+            i++;
+            key = barValue[i];
+            j = i - 1;
+            if (i < barValue.length) setTimeout(innerLoop, delay);
+            else smoothBarColor('green');
+        }
+        barValue[j + 1] = key;
+        colorBar('red', bars.item(j + 1) as HTMLElement);
+        colorBar('green', bars.item(j) as HTMLElement);
+    }
+}
+
+function sortBar(delay = 1) {
+    if (isSorted()) return;
+    sortingFunction[chosenSortingAlgorithm](delay);
+    return;
 }
 
 function randomizeBar(delay = 1) {
