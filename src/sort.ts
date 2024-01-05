@@ -1,5 +1,10 @@
 import { getRandomInt } from './utils';
 
+interface Sorter {
+    name: string;
+    function: Function;
+}
+
 const wrapper = document.getElementById('sorting') as HTMLDivElement;
 const startSortButton = document.getElementById(
     'sort-start'
@@ -8,16 +13,33 @@ const startRandomButton = document.getElementById(
     'random-start'
 ) as HTMLButtonElement;
 const resetButton = document.getElementById('reset') as HTMLButtonElement;
+const algorithmSelector = document.getElementById(
+    'sort-select'
+) as HTMLSelectElement;
+
 const defaultWidth = 5;
 const scale = 20;
 let totalBar = document.documentElement.offsetWidth / scale;
 let barValue: number[] = [];
 
-const chosenSortingAlgorithm = 'insertionSort'; // use a HTML selection element later
-const sortingFunction = {
-    bubbleSort: bubbleSort,
-    insertionSort: insertionSort,
-};
+let chosenAlgorithmIndex = 0;
+const sortingFunction: Sorter[] = [
+    {
+        name: 'Bubble Sort',
+        function: bubbleSort,
+    },
+    {
+        name: 'Insertion Sort',
+        function: insertionSort,
+    },
+];
+
+sortingFunction.forEach((sorter) => {
+    const option = document.createElement('option');
+    option.text = sorter.name;
+
+    algorithmSelector.add(option);
+});
 
 addEventListener('resize', initBar);
 initBar();
@@ -146,8 +168,9 @@ function insertionSort(delay: number) {
 }
 
 function sortBar(delay = 1) {
+    chosenAlgorithmIndex = algorithmSelector.selectedIndex;
     if (isSorted()) return;
-    sortingFunction[chosenSortingAlgorithm](delay);
+    sortingFunction[chosenAlgorithmIndex].function(delay);
     return;
 }
 
