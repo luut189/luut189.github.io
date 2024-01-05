@@ -1,3 +1,5 @@
+import { getRandomInt } from './utils';
+
 const wrapper = document.getElementById('sorting') as HTMLDivElement;
 const startSortButton = document.getElementById(
     'sort-start'
@@ -29,12 +31,6 @@ startRandomButton.addEventListener('click', () => {
 resetButton.addEventListener('click', () => {
     initBar();
 });
-
-function getRandomInt(min: number, max: number) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-}
 
 function getBarStyle(value: number, color: string) {
     return `margin: 0; width: ${
