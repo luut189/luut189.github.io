@@ -22,9 +22,9 @@ savedWebsite.forEach((web) => {
     link.className = 'clickable';
     link.href = http + web.url;
     link.innerHTML = web.name;
-    link.setAttribute('style', 'transform: scale(0)');
+    link.style.transform = 'scale(0)';
     setTimeout(() => {
-        link.setAttribute('style', 'transform: scale(1)');
+        link.style.transform = 'scale(1)';
     }, linkDelay);
     linkDelay += ELEMENT_DELAY;
     linkSaverWrapper.appendChild(link);
@@ -34,17 +34,37 @@ const anchorClickable = document.getElementsByTagName('a');
 const buttonClickable = document.getElementsByTagName('button');
 for (const anchor of anchorClickable) {
     anchor.addEventListener('mouseover', () => {
-        anchor.setAttribute('style', 'transform: scale(0.8)');
+        anchor.style.transform = 'scale(0.8)';
     });
     anchor.addEventListener('mouseleave', () => {
-        anchor.setAttribute('style', 'transform: scale(1)');
+        anchor.style.transform = 'scale(1)';
     });
 }
 for (const button of buttonClickable) {
     button.addEventListener('click', () => {
-        button.setAttribute('style', 'transform: scale(0.8)');
+        button.style.transform = 'scale(0.8)';
         setTimeout(() => {
-            button.setAttribute('style', 'transform: scale(1)');
+            button.style.transform = 'scale(1)';
         }, 200);
     });
 }
+
+document.getElementById('sidebar-on')?.addEventListener('click', () => {
+    const sidebar = document.querySelector('.sidebar') as HTMLElement;
+
+    sidebar.style.display = 'flex';
+    sidebar.style.opacity = '0';
+    setTimeout(() => {
+        sidebar.style.opacity = '1';
+    }, 100);
+});
+
+document.getElementById('sidebar-off')?.addEventListener('click', () => {
+    const sidebar = document.querySelector('.sidebar') as HTMLElement;
+    setTimeout(() => {
+        sidebar.style.opacity = '0';
+    }, 100);
+    setTimeout(() => {
+        sidebar.style.display = 'none';
+    }, 200);
+});
