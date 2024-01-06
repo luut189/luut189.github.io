@@ -3,10 +3,8 @@ import { ELEMENT_DELAY } from './constants';
 const newTodo = document.querySelector('#new-todo') as HTMLInputElement;
 const todoList = document.getElementById('todo-list') as HTMLUListElement;
 const addTodoButton = document.getElementById('add-todo') as HTMLButtonElement;
-const clearTodoButton = document.getElementById(
-    'clear-todo'
-) as HTMLButtonElement;
-const existingTodo = JSON.parse(localStorage.getItem('todos') || '{}');
+const clearTodoButton = document.getElementById('clear-todo') as HTMLButtonElement;
+const existingTodo = JSON.parse(localStorage.getItem('todos') || '[]');
 const todoData: string[] = [];
 let currentIndex = -1;
 
@@ -30,7 +28,7 @@ function addTodo(todoText: string, delay = 100) {
 
     li.innerHTML = todoText;
     li.onclick = () => {
-        li.setAttribute('style', 'transform: scale(0)');
+        li.style.transform = 'scale(0)';
         todoData.splice(currentIndex, 1);
         currentIndex--;
         localStorage.removeItem('todos');
@@ -43,9 +41,9 @@ function addTodo(todoText: string, delay = 100) {
     };
     newTodo.value = '';
 
-    li.setAttribute('style', 'transform: scale(0)');
+    li.style.transform = 'scale(0)';
     setTimeout(() => {
-        li.setAttribute('style', 'transform: scale(1)');
+        li.style.transform = 'scale(1)';
     }, delay);
     todoList.appendChild(li);
     localStorage.setItem('todos', JSON.stringify(todoData));
@@ -58,7 +56,8 @@ function clearTodo() {
     const allTodos = todoList.children;
     for (let i = allTodos.length - 1; i >= 0; i--) {
         setTimeout(() => {
-            allTodos[i].setAttribute('style', 'transform: scale(0)');
+            const todo = allTodos[i] as HTMLElement;
+            todo.style.transform = 'scale(0)';
         }, delay);
         delay += ELEMENT_DELAY;
         setTimeout(() => {

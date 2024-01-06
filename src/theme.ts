@@ -1,25 +1,26 @@
-const themeToggleButton = document.getElementById(
-    'theme-toggle'
-) as HTMLButtonElement;
+const themeToggleButtons = document.getElementsByClassName('theme-toggle');
 
-themeToggleButton.addEventListener('click', toggleTheme);
+for (const toggleButton of themeToggleButtons) {
+    toggleButton.addEventListener('click', toggleTheme);
+}
 
 const defaultTheme = 'theme-dark';
 const theme = localStorage.getItem('theme') || defaultTheme;
 setTheme(theme);
 
 function setTheme(themeName: string) {
-    const oppositeTheme =
-        themeName === 'theme-dark' ? 'theme-light' : 'theme-dark';
+    const oppositeTheme = themeName === 'theme-dark' ? 'theme-light' : 'theme-dark';
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
 
-    themeToggleButton.classList.replace(themeName, oppositeTheme);
+    for (const toggleButton of themeToggleButtons) {
+        toggleButton.classList.replace(themeName, oppositeTheme);
+    }
 
-    const toggleButtonTooltip = document.getElementById(
-        'theme-toggle-tooltip'
-    ) as HTMLSpanElement;
-    toggleButtonTooltip.innerHTML = `Switch ${oppositeTheme.replace('-', ' ')}`;
+    const themeToggleTooltip = document.getElementsByClassName('theme-toggle-tooltip');
+    for (const tooltip of themeToggleTooltip) {
+        tooltip.innerHTML = `Switch ${oppositeTheme.replace('-', ' ')}`;
+    }
 }
 
 function toggleTheme() {
