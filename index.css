@@ -121,11 +121,12 @@ input::placeholder {
     visibility: hidden;
     opacity: 0;
     width: max-content;
-    background-color: #000000;
-    color: #fff;
+    background-color: var(--wrapper-color);
+    color: var(--font-color);
     text-align: center;
     margin: 0;
     padding: var(--padding);
+    box-shadow: 0px 5px 5px var(--shadow-color);
 
     position: absolute;
     z-index: 1;
