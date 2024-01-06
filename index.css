@@ -1,6 +1,7 @@
 :root {
     --padding: 1vw;
     --margin: 6vw;
+    --hover-scale: 0.5;
 }
 
 .theme-dark {
@@ -8,13 +9,12 @@
     --shadow-color: #2d3b4763;
     --placeholder-color: #dbe2ec;
     --hyperlink-color: #aad7ff;
-    --background-color: #55738d;
-    --intro-box-color: #6b8faf;
-    --wrapper-color: #496780;
-    --hover-color: #496174;
-    --box-color: #62839e;
 
-    --bar-color: #2d3b47;
+    --background-color: #000000;
+    --wrapper-color: #1e1f20;
+    --box-color: 28, 58, 114;
+
+    --bar-color: #1c3a72;
 }
 
 .theme-light {
@@ -22,13 +22,12 @@
     --shadow-color: #484b6a63;
     --placeholder-color: #3b3d57;
     --hyperlink-color: #3d6d97;
-    --background-color: #e4e5f1;
-    --intro-box-color: #f8f8f8;
-    --wrapper-color: #c2c3d3;
-    --hover-color: #d6d7e4;
-    --box-color: #f1f1f1;
 
-    --bar-color: #909099;
+    --background-color: #e4e5f1;
+    --wrapper-color: #cecfe0;
+    --box-color: 241, 241, 241;
+
+    --bar-color: #8282a0;
 }
 
 * {
@@ -75,7 +74,7 @@ input::placeholder {
 }
 
 .textbox {
-    background-color: var(--box-color);
+    background-color: rgb(var(--box-color));
     width: 40vw;
     padding: var(--padding);
     margin: 1rem;
@@ -83,14 +82,14 @@ input::placeholder {
 }
 
 .clickable {
-    background-color: var(--box-color);
+    background-color: rgb(var(--box-color));
     margin: 1rem;
     padding: var(--padding);
     border: none;
 }
 
 .clickable:hover {
-    background-color: var(--hover-color);
+    background-color: rgb(var(--box-color), var(--hover-scale));
     cursor: pointer;
 }
 /*  **  */
@@ -105,10 +104,6 @@ input::placeholder {
     border: none;
     float: left;
     clear: left;
-}
-
-.about-clickable:hover {
-    background-color: var(--hover-color);
 }
 
 .about-clickable i {
@@ -170,7 +165,7 @@ nav {
     z-index: 999;
     background-color: var(--wrapper-color);
     margin-bottom: 1rem;
-    box-shadow: -10px 0 10px var(--shadow-color);
+    box-shadow: -1px 10px 10px var(--shadow-color);
     overflow: hidden;
 }
 
@@ -212,7 +207,7 @@ svg {
 
 #intro {
     padding: var(--padding);
-    background-color: var(--intro-box-color);
+    background-color: var(--wrapper-color);
     text-align: center;
     overflow-wrap: break-word;
 }
@@ -262,7 +257,7 @@ svg {
     margin: 1rem;
     padding: 0.5rem;
     word-wrap: break-word;
-    background-color: var(--box-color);
+    background-color: rgb(var(--box-color));
 }
 
 #todo-list li:hover {
