@@ -3,9 +3,7 @@ import { ELEMENT_DELAY } from './constants';
 const newTodo = document.querySelector('#new-todo') as HTMLInputElement;
 const todoList = document.getElementById('todo-list') as HTMLUListElement;
 const addTodoButton = document.getElementById('add-todo') as HTMLButtonElement;
-const clearTodoButton = document.getElementById(
-    'clear-todo'
-) as HTMLButtonElement;
+const clearTodoButton = document.getElementById('clear-todo') as HTMLButtonElement;
 const existingTodo = JSON.parse(localStorage.getItem('todos') || '[]');
 const todoData: string[] = [];
 let currentIndex = -1;

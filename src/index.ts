@@ -2,9 +2,7 @@
 import { ELEMENT_DELAY } from './constants';
 
 const http = 'https://';
-const linkSaverWrapper = document.getElementById(
-    'link-saver'
-) as HTMLDivElement;
+const linkSaverWrapper = document.getElementById('link-saver') as HTMLDivElement;
 const savedWebsite = [
     {
         name: 'Facebook',

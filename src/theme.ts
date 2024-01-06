@@ -9,8 +9,7 @@ const theme = localStorage.getItem('theme') || defaultTheme;
 setTheme(theme);
 
 function setTheme(themeName: string) {
-    const oppositeTheme =
-        themeName === 'theme-dark' ? 'theme-light' : 'theme-dark';
+    const oppositeTheme = themeName === 'theme-dark' ? 'theme-light' : 'theme-dark';
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
 

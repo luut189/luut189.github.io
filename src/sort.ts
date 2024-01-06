@@ -6,16 +6,10 @@ interface Sorter {
 }
 
 const wrapper = document.getElementById('sorting') as HTMLDivElement;
-const startSortButton = document.getElementById(
-    'sort-start'
-) as HTMLButtonElement;
-const startRandomButton = document.getElementById(
-    'random-start'
-) as HTMLButtonElement;
+const startSortButton = document.getElementById('sort-start') as HTMLButtonElement;
+const startRandomButton = document.getElementById('random-start') as HTMLButtonElement;
 const resetButton = document.getElementById('reset') as HTMLButtonElement;
-const algorithmSelector = document.getElementById(
-    'sort-select'
-) as HTMLSelectElement;
+const algorithmSelector = document.getElementById('sort-select') as HTMLSelectElement;
 
 const defaultWidth = 5;
 const scale = 20;
