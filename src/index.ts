@@ -47,6 +47,16 @@ for (const button of buttonClickable) {
     });
 }
 
+window.onscroll = () => {
+    const navbar = document.querySelector('#main-navbar') as HTMLElement;
+    const top = navbar.offsetTop;
+    if (window.scrollY > top) {
+        navbar.classList.add('sticky');
+    } else {
+        navbar.classList.remove('sticky');
+    }
+};
+
 document.getElementById('sidebar-on')?.addEventListener('click', () => {
     const sidebar = document.querySelector('.sidebar') as HTMLElement;
 
