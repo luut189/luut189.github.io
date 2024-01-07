@@ -16,7 +16,6 @@ clearTodoButton.addEventListener('click', clearTodo);
 let todoDelay = ELEMENT_DELAY;
 existingTodo.forEach((todo: string) => {
     addTodo(todo, todoDelay);
-    console.log(todoDelay);
     todoDelay += ELEMENT_DELAY;
 });
 

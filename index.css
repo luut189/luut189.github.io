@@ -262,7 +262,7 @@ svg {
 }
 
 #todo-list li:hover {
-    background-color: var(--hover-color);
+    background-color: rgb(var(--box-color), var(--hover-scale));
     text-decoration: line-through;
 }
 
