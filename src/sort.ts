@@ -35,8 +35,10 @@ sortingFunction.forEach((sorter) => {
     algorithmSelector.add(option);
 });
 
-addEventListener('resize', initBar);
-initBar();
+addEventListener('resize', () => {
+    initBar(false);
+});
+initBar(true);
 
 startSortButton.addEventListener('click', () => {
     sortBar();
@@ -45,7 +47,7 @@ startRandomButton.addEventListener('click', () => {
     randomizeBar();
 });
 resetButton.addEventListener('click', () => {
-    initBar();
+    initBar(false);
 });
 
 function getBarStyle(value: number, color: string) {
@@ -61,11 +63,13 @@ function colorBar(color: string, bar: HTMLElement, delay = 1) {
     }, delay);
 }
 
-function initBar() {
+function initBar(firstInit: boolean) {
     totalBar = document.documentElement.offsetWidth / scale;
-    let id = window.setTimeout(function () {}, 0);
-    while (id--) {
-        window.clearTimeout(id);
+    if (!firstInit) {
+        let id = window.setTimeout(function () {}, 0);
+        while (id--) {
+            window.clearTimeout(id);
+        }
     }
     barValue = [];
     for (let i = 0; i < totalBar; i++) {
