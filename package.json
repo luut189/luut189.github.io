@@ -1,7 +1,7 @@
 {
     "name": "luut189.github.io",
     "version": "1.0.0",
-    "description": "> Nothing here yet!",
+    "description": "A Personal Website to practice web development",
     "main": "index.ts",
     "devDependencies": {
         "typescript": "^5.3.3"
