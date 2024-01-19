@@ -6,7 +6,7 @@ interface NavBarItem {
 const navbarItems: NavBarItem[] = [
     {
         displayName: 'Resume',
-        href: 'public/resume.pdf',
+        href: '/resume.pdf',
     },
     {
         displayName: 'Lorem Ipsum',
