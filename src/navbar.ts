@@ -5,16 +5,16 @@ interface NavBarItem {
 
 const navbarItems: NavBarItem[] = [
     {
-        displayName: 'Resume (placeholder)',
-        href: '/',
+        displayName: 'Resume',
+        href: 'public/resume.pdf',
     },
     {
         displayName: 'Lorem Ipsum',
         href: '/',
     },
     {
-        displayName: 'Lorem Ipsum',
-        href: '/',
+        displayName: 'Contact',
+        href: '#about',
     },
 ];
 
