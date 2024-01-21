@@ -27,6 +27,14 @@ export function initSort() {
             name: 'Insertion Sort',
             function: insertionSort,
         },
+        {
+            name: 'Selection Sort',
+            function: selectionSort,
+        },
+        {
+            name: 'Merge Sort',
+            function: mergeSort,
+        },
     ];
 
     sortingFunction.forEach((sorter) => {
@@ -162,7 +170,107 @@ export function initSort() {
             }
             barValue[j + 1] = key;
             colorBar('red', bars.item(j + 1) as HTMLElement);
-            colorBar('green', bars.item(j) as HTMLElement);
+            colorBar('green', bars.item(i) as HTMLElement);
+        }
+    }
+
+    function selectionSort(delay: number) {
+        const bars = wrapper.children;
+        let i = 0,
+            j = i + 1,
+            minIndex = i;
+        innerLoop();
+        function innerLoop() {
+            recreateBar(barValue);
+            colorBar('green', bars.item(i) as HTMLElement);
+            colorBar('red', bars.item(j) as HTMLElement);
+            if (barValue[j] < barValue[minIndex]) minIndex = j;
+            j++;
+            if (j < barValue.length) {
+                setTimeout(innerLoop, delay);
+            } else {
+                let temp = barValue[i];
+                barValue[i] = barValue[minIndex];
+                barValue[minIndex] = temp;
+                i++;
+                minIndex = i;
+                j = i + 1;
+                if (i < barValue.length - 1) setTimeout(innerLoop, delay);
+                else smoothBarColor('green');
+            }
+        }
+        recreateBar(barValue);
+    }
+
+    async function mergeSort(delay: number) {
+        await innerMerge(0, barValue.length - 1);
+        smoothBarColor('green');
+
+        async function innerMerge(left: number, right: number) {
+            if (left < right) {
+                let middle = left + Math.floor((right - left) / 2);
+
+                await innerMerge(left, middle);
+                await innerMerge(middle + 1, right);
+
+                await merge(left, middle, right);
+            }
+        }
+
+        async function merge(left: number, middle: number, right: number) {
+            const bars = wrapper.children;
+            let leftLength = middle - left + 1;
+            let rightLength = right - middle;
+
+            let leftArr: number[] = [];
+            let rightArr: number[] = [];
+
+            for (let i = 0; i < leftLength; i++) {
+                leftArr[i] = barValue[left + i];
+            }
+
+            for (let i = 0; i < rightLength; i++) {
+                rightArr[i] = barValue[middle + 1 + i];
+            }
+
+            let i = 0,
+                j = 0,
+                k = left;
+
+            while (i < leftLength && j < rightLength) {
+                if (leftArr[i] < rightArr[j]) {
+                    barValue[k] = leftArr[i];
+                } else {
+                    barValue[k] = rightArr[j];
+                }
+                await timeout(delay);
+                recreateBar(barValue);
+                colorBar('red', bars.item(k) as HTMLElement);
+                colorBar('green', bars.item(leftArr[i] < rightArr[j] ? i : j) as HTMLElement);
+                if (leftArr[i] < rightArr[j]) i++;
+                else j++;
+                k++;
+            }
+
+            while (i < leftLength) {
+                barValue[k] = leftArr[i];
+                await timeout(delay);
+                recreateBar(barValue);
+                colorBar('red', bars.item(k) as HTMLElement);
+                colorBar('green', bars.item(i) as HTMLElement);
+                i++;
+                k++;
+            }
+
+            while (j < rightLength) {
+                barValue[k] = rightArr[j];
+                await timeout(delay);
+                recreateBar(barValue);
+                colorBar('red', bars.item(k) as HTMLElement);
+                colorBar('green', bars.item(j) as HTMLElement);
+                j++;
+                k++;
+            }
         }
     }
 
@@ -194,5 +302,9 @@ export function initSort() {
             if (i < totalBar) setTimeout(innerLoop, delay);
             else smoothBarColor('var(--font-color)');
         }
+    }
+
+    async function timeout(ms: number) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
     }
 }
