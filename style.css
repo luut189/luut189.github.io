@@ -175,6 +175,14 @@ nav div:first-child {
     margin-right: auto;
 }
 
+.nav-clickable {
+    margin: 1rem;
+}
+
+.nav-clickable:hover {
+    color: var(--hyperlink-color);
+}
+
 .sticky {
     position: fixed;
     top: 0;
