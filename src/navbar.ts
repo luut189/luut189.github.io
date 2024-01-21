@@ -26,11 +26,11 @@ export function initNavBar() {
         const childForSide = document.createElement('a');
         childForMain.innerHTML = item.displayName;
         childForMain.href = item.href;
-        childForMain.className = 'clickable hide-on-mobile';
+        childForMain.className = 'nav-clickable hide-on-mobile';
 
         childForSide.innerHTML = item.displayName;
         childForSide.href = item.href;
-        childForSide.className = 'clickable';
+        childForSide.className = 'nav-clickable';
 
         mainNavbar.appendChild(childForMain);
         mainNavbar.appendChild(document.getElementById('theme-toggle') as HTMLButtonElement);
