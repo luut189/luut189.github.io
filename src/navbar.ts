@@ -39,12 +39,6 @@ export function initNavBar() {
         sidebar.appendChild(childForSide);
     });
 
-    window.onscroll = () => {
-        const navbar = document.getElementById('main-navbar') as HTMLElement;
-        const top = 50;
-        navbar.classList.toggle('sticky', window.scrollY > top);
-    };
-
     document.getElementById('sidebar-on')?.addEventListener('click', () => {
         const sidebar = document.getElementById('sidebar') as HTMLElement;
 
