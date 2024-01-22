@@ -13,168 +13,172 @@
             rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="/img/favicon.svg" />
         <title>Dev with Kyzel</title>
-      <script type="module" crossorigin src="/assets/index-Wz7WMbhY.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-hMDvCFDv.css">
+      <script type="module" crossorigin src="/assets/index-9fU2oyZK.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-DgV3kmRg.css">
     </head>
     <body>
-        <nav id="main-navbar">
-            <div>
-                <svg
-                    class="svg-icon"
-                    style="
-                        width: 2rem;
-                        height: 2rem;
-                        vertical-align: middle;
-                        fill: currentColor;
-                        overflow: hidden;
-                    "
-                    viewBox="0 0 1024 1024"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M285.639041 281.263895a218.487 215.763 0 1 0 447.158203 0 218.487 215.763 0 1 0-447.158203 0ZM510.323313 545.620725c-242.061035 0-439.150832 184.720072-446.538079 415.260725l893.075135 0C949.475168 730.339774 752.386394 545.620725 510.323313 545.620725z" />
-                </svg>
-            </div>
-            <button id="theme-toggle" class="clickable tooltip theme-light">
-                <span id="theme-toggle-tooltip" class="tooltip-text"></span>
-                <svg
-                    id="theme-icon"
-                    width="2rem"
-                    height="2rem"
-                    class="svg-icon"
-                    viewBox="0 0 1024 1024"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M320 85.333333c-76.373333 49.066667-128 135.68-128 234.666667s51.626667 185.6 129.28 234.666667C190.293333 554.666667 85.333333 449.706667 85.333333 320A234.666667 234.666667 0 0 1 320 85.333333m493.653333 64l61.013334 61.013334L210.346667 874.666667 149.333333 813.653333 813.653333 149.333333m-263.68 103.68L486.826667 213.333333 425.386667 256l17.92-72.533333L384 138.24l74.666667-5.12 24.746666-70.4L512 132.266667l73.813333 1.28-57.6 48.213333 21.76 71.253333m-140.8 154.026667l-49.493333-31.146667-47.786667 33.28 14.506667-56.32-46.506667-35.413333 58.026667-3.84 19.2-55.04 21.76 54.186667 58.026667 1.28-44.8 37.12 17.066666 55.893333M810.666667 576a234.666667 234.666667 0 0 1-234.666667 234.666667c-52.053333 0-100.266667-17.066667-139.093333-45.653334l328.106666-328.106666c28.586667 38.826667 45.653333 87.04 45.653334 139.093333m-187.733334 280.746667l118.186667-49.066667-10.24 142.933333-107.946667-93.866666m184.746667-115.2l49.066667-118.186667 93.866666 108.373333-142.933333 9.813334m49.066667-211.626667l-48.64-118.613333 142.506666 10.24-93.866666 108.373333M410.88 807.68l118.186667 49.066667-107.946667 93.44-10.24-142.506667z"
-                        fill="" />
-                </svg>
-            </button>
-            <button id="sidebar-on" class="clickable hide-on-desktop">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2rem"
-                    height="2rem"
-                    fill="var(--font-color)"
-                    viewBox="0 -960 960 960">
-                    <path
-                        d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-                </svg>
-            </button>
-        </nav>
-
-        <nav id="sidebar" class="sidebar">
-            <button id="sidebar-off" class="clickable">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2rem"
-                    height="2rem"
-                    viewBox="0 -960 960 960">
-                    <path
-                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                </svg>
-            </button>
-        </nav>
-
-        <div id="intro">
-            Hey, I am a freshman at University of Waterloo with development hobbies!
-        </div>
-
-        <div id="profile">
-            <div id="name">
-                Tuong Luu<br />
-                <div id="prof">(Honour Mathematics / Computational Mathematics)</div>
-            </div>
-            <img id="avt" src="/img/avt.png" alt="Profile Picture" />
-        </div>
-
-        <div class="wrapper" id="quote"></div>
-
-        <div class="wrapper">
-            <div class="header">Saved Link</div>
-            <div
-                style="display: flex; flex-wrap: wrap; justify-content: center"
-                class="content"
-                id="link-saver"></div>
-        </div>
-
-        <div class="wrapper">
-            <div class="header">To-do List</div>
-            <div class="content">
-                <div id="form">
-                    <input
-                        type="text"
-                        class="textbox"
-                        id="new-todo"
-                        placeholder="📃 Add new to do" />
-                    <button class="clickable" id="add-todo">Add To-do</button>
-                    <button class="clickable" id="clear-todo">Clear To-do</button>
+        <header>
+            <nav id="main-navbar">
+                <div>
+                    <svg
+                        class="svg-icon"
+                        style="
+                            width: 2rem;
+                            height: 2rem;
+                            vertical-align: middle;
+                            fill: currentColor;
+                            overflow: hidden;
+                        "
+                        viewBox="0 0 1024 1024"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M285.639041 281.263895a218.487 215.763 0 1 0 447.158203 0 218.487 215.763 0 1 0-447.158203 0ZM510.323313 545.620725c-242.061035 0-439.150832 184.720072-446.538079 415.260725l893.075135 0C949.475168 730.339774 752.386394 545.620725 510.323313 545.620725z" />
+                    </svg>
                 </div>
-                <ul id="todo-list">
-                    Things to do:
-                </ul>
-            </div>
-        </div>
+                <button id="theme-toggle" class="clickable tooltip theme-light">
+                    <span id="theme-toggle-tooltip" class="tooltip-text"></span>
+                    <svg
+                        id="theme-icon"
+                        width="2rem"
+                        height="2rem"
+                        class="svg-icon"
+                        viewBox="0 0 1024 1024"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M320 85.333333c-76.373333 49.066667-128 135.68-128 234.666667s51.626667 185.6 129.28 234.666667C190.293333 554.666667 85.333333 449.706667 85.333333 320A234.666667 234.666667 0 0 1 320 85.333333m493.653333 64l61.013334 61.013334L210.346667 874.666667 149.333333 813.653333 813.653333 149.333333m-263.68 103.68L486.826667 213.333333 425.386667 256l17.92-72.533333L384 138.24l74.666667-5.12 24.746666-70.4L512 132.266667l73.813333 1.28-57.6 48.213333 21.76 71.253333m-140.8 154.026667l-49.493333-31.146667-47.786667 33.28 14.506667-56.32-46.506667-35.413333 58.026667-3.84 19.2-55.04 21.76 54.186667 58.026667 1.28-44.8 37.12 17.066666 55.893333M810.666667 576a234.666667 234.666667 0 0 1-234.666667 234.666667c-52.053333 0-100.266667-17.066667-139.093333-45.653334l328.106666-328.106666c28.586667 38.826667 45.653333 87.04 45.653334 139.093333m-187.733334 280.746667l118.186667-49.066667-10.24 142.933333-107.946667-93.866666m184.746667-115.2l49.066667-118.186667 93.866666 108.373333-142.933333 9.813334m49.066667-211.626667l-48.64-118.613333 142.506666 10.24-93.866666 108.373333M410.88 807.68l118.186667 49.066667-107.946667 93.44-10.24-142.506667z"
+                            fill="" />
+                    </svg>
+                </button>
+                <button id="sidebar-on" class="clickable hide-on-desktop">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="2rem"
+                        height="2rem"
+                        fill="var(--font-color)"
+                        viewBox="0 -960 960 960">
+                        <path
+                            d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                </button>
+            </nav>
 
-        <div class="wrapper">
-            <div class="header">Sorting Visualizer</div>
-            <div class="content" style="padding: 1rem; background-color: var(--wrapper-color)">
+            <nav id="sidebar" class="sidebar">
+                <button id="sidebar-off" class="clickable">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="2rem"
+                        height="2rem"
+                        viewBox="0 -960 960 960">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <div id="intro">
+                Hey, I am a freshman at University of Waterloo with development hobbies!
+            </div>
+
+            <div id="profile">
+                <div id="name">
+                    Tuong Luu<br />
+                    <div id="prof">(Honour Mathematics / Computational Mathematics)</div>
+                </div>
+                <img id="avt" src="/img/avt.png" alt="Profile Picture" />
+            </div>
+
+            <div class="wrapper" id="quote-wrapper"></div>
+
+            <div class="wrapper">
+                <div class="header">Saved Link</div>
                 <div
-                    id="sorting"
-                    style="
-                        display: flex;
-                        position: relative;
-                        align-items: self-end;
-                        background-color: var(--wrapper-color);
-                        margin: 1rem;
-                    "></div>
-                <div
+                    style="display: flex; flex-wrap: wrap; justify-content: center"
                     class="content"
-                    style="
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: space-evenly;
-                        background-color: var(--wrapper-color);
-                    ">
-                    <button class="clickable" id="sort-start">Sort</button>
-                    <button class="clickable" id="random-start">Randomize</button>
-                    <button class="clickable" id="reset">Reset</button>
-                    <select name="Sorting Algorithm" id="sort-select" class="textbox"></select>
+                    id="link-saver"></div>
+            </div>
+
+            <div class="wrapper">
+                <div class="header">To-do List</div>
+                <div class="content">
+                    <div id="form">
+                        <input
+                            type="text"
+                            class="textbox"
+                            id="new-todo"
+                            placeholder="📃 Add new to do" />
+                        <button class="clickable" id="add-todo">Add To-do</button>
+                        <button class="clickable" id="clear-todo">Clear To-do</button>
+                    </div>
+                    <ul id="todo-list">
+                        Things to do:
+                    </ul>
                 </div>
             </div>
-        </div>
 
-        <div class="wrapper" id="about">
-            <div class="header">About</div>
-            <div class="content">
-                <a class="about-clickable" href="https://github.com/luut189">
-                    <i class="fa fa-github"></i>@luut189</a
-                >
-                <a class="about-clickable" href="mailto:minhtuongluu74@gmail.com">
-                    <i class="fa fa-envelope"></i>minhtuongluu74</a
-                >
-                <a class="about-clickable" href="https://www.instagram.com/_kyzeeeeel/?hl=en">
-                    <i class="fa fa-instagram"></i>@_kyzeeeeel</a
-                >
+            <div class="wrapper">
+                <div class="header">Sorting Visualizer</div>
+                <div class="content" style="padding: 1rem; background-color: var(--wrapper-color)">
+                    <div
+                        id="sorting"
+                        style="
+                            display: flex;
+                            position: relative;
+                            align-items: self-end;
+                            background-color: var(--wrapper-color);
+                            margin: 1rem;
+                        "></div>
+                    <div
+                        class="content"
+                        style="
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-evenly;
+                            background-color: var(--wrapper-color);
+                        ">
+                        <button class="clickable" id="sort-start">Sort</button>
+                        <button class="clickable" id="random-start">Randomize</button>
+                        <button class="clickable" id="reset">Reset</button>
+                        <select name="Sorting Algorithm" id="sort-select" class="textbox"></select>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div
-            class="bottom-right tooltip"
-            style="background-color: transparent; width: 3rem; height: 3rem">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1.2rem"
-                height="1.2rem"
-                fill="var(--font-color)"
-                class="bi bi-exclamation-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                <path
-                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
-            </svg>
-            <span class="tooltip-text"> This is a tooltip! </span>
-        </div>
+            <div class="wrapper" id="about">
+                <div class="header">About</div>
+                <div class="content">
+                    <a class="about-clickable" href="https://github.com/luut189">
+                        <i class="fa fa-github"></i>@luut189</a
+                    >
+                    <a class="about-clickable" href="mailto:minhtuongluu74@gmail.com">
+                        <i class="fa fa-envelope"></i>minhtuongluu74</a
+                    >
+                    <a class="about-clickable" href="https://www.instagram.com/_kyzeeeeel/?hl=en">
+                        <i class="fa fa-instagram"></i>@_kyzeeeeel</a
+                    >
+                </div>
+            </div>
+
+            <div
+                class="bottom-right tooltip"
+                style="background-color: transparent; width: 3rem; height: 3rem">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1.2rem"
+                    height="1.2rem"
+                    fill="var(--font-color)"
+                    class="bi bi-exclamation-circle"
+                    viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                </svg>
+                <span class="tooltip-text"> This is a tooltip! </span>
+            </div>
+        </main>
 
     </body>
 </html>
