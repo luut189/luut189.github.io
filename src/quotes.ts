@@ -6,7 +6,7 @@ interface Quote {
 }
 
 export function initQuote() {
-    const quoteWrapper = document.getElementById('quote') as HTMLDivElement;
+    const quoteWrapper = document.getElementById('quote-wrapper') as HTMLDivElement;
 
     fetch('https://type.fit/api/quotes')
         .then((response) => {
@@ -19,7 +19,7 @@ export function initQuote() {
 
             const quoteTextElement = document.createElement('p');
 
-            quoteTextElement.id = 'intro';
+            quoteTextElement.id = 'quote';
             quoteTextElement.innerHTML = `${quoteText}<br/>${quoteAuthor}`;
             quoteWrapper.appendChild(quoteTextElement);
         });

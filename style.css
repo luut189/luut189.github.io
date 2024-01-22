@@ -168,6 +168,9 @@ input::placeholder {
 }
 
 nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: var(--wrapper-color);
     display: flex;
     justify-content: flex-end;
@@ -192,12 +195,6 @@ nav div:first-child {
     color: var(--hyperlink-color);
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
 svg {
     padding: 0;
     margin: 0;
@@ -210,6 +207,7 @@ svg {
 .sidebar {
     margin: 0;
     position: fixed;
+    width: max-content;
     top: 0;
     right: 0;
     height: 100vh;
@@ -224,6 +222,14 @@ svg {
 }
 
 #intro {
+    margin-top: 7rem;
+    padding: var(--padding);
+    background-color: var(--wrapper-color);
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+#quote {
     padding: var(--padding);
     background-color: var(--wrapper-color);
     text-align: center;
