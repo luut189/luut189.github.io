@@ -74,12 +74,7 @@ export function initSort() {
 
     function initBar(firstInit: boolean) {
         totalBar = document.documentElement.offsetWidth / scale;
-        if (!firstInit) {
-            let id = window.setTimeout(function () {}, 0);
-            while (id--) {
-                window.clearTimeout(id);
-            }
-        }
+        if (!firstInit) clearProcess();
         barValue = [];
         for (let i = 0; i < totalBar; i++) {
             const value = getRandomInt(50, 300);
@@ -97,14 +92,11 @@ export function initSort() {
         });
     }
 
-    function smoothBarColor(color: string) {
-        let index = 0;
-        flashBar();
-        function flashBar() {
-            const bars = wrapper.children;
-            colorBar(color, bars.item(index) as HTMLElement, 200);
-            index++;
-            if (index < totalBar) setTimeout(flashBar, 10);
+    async function smoothBarColor(color: string) {
+        const bars = wrapper.children;
+        for (let i = 0; i < totalBar; i++) {
+            colorBar(color, bars.item(i) as HTMLElement, 200);
+            await timeout(10);
         }
     }
 
@@ -116,95 +108,72 @@ export function initSort() {
                 break;
             }
         }
-        if (sorted) {
-            smoothBarColor('green');
-        }
         return sorted;
     }
 
-    function bubbleSort(delay: number) {
-        let i = 0,
-            j = 0;
+    async function bubbleSort(delay: number) {
         const bars = wrapper.children;
-        innerLoop();
+        let index = 0;
+        while (true) {
+            let isFlag = false;
+            for (let j = 0; j < barValue.length - index - 1; j++) {
+                if (barValue[j] > barValue[j + 1]) {
+                    let temp = barValue[j];
+                    barValue[j] = barValue[j + 1];
+                    barValue[j + 1] = temp;
+                    isFlag = true;
+                    recreateBar(barValue);
+                    colorBar('red', bars.item(j) as HTMLElement);
+                    colorBar('green', bars.item(j + 1) as HTMLElement);
+                }
+                await timeout(delay);
+            }
+            index++;
+            if (!isFlag) break;
+        }
+    }
 
-        function innerLoop() {
-            if (isSorted()) return;
-            if (barValue[j] > barValue[j + 1]) {
+    async function insertionSort(delay: number) {
+        const bars = wrapper.children;
+        for (let i = 1; i < barValue.length; i++) {
+            let key = barValue[i];
+            let j = i - 1;
+
+            while (j >= 0 && barValue[j] > key) {
                 let temp = barValue[j];
                 barValue[j] = barValue[j + 1];
                 barValue[j + 1] = temp;
                 recreateBar(barValue);
-                colorBar('red', bars.item(j) as HTMLElement);
-                colorBar('green', bars.item(j + 1) as HTMLElement);
-            }
-            j++;
-            if (j < bars.length - i - 1) {
-                setTimeout(innerLoop, delay);
-            } else {
-                j = 0;
-                i++;
-                setTimeout(innerLoop, delay);
-            }
-        }
-    }
-
-    function insertionSort(delay: number) {
-        const bars = wrapper.children;
-        let i = 1;
-        let key = barValue[i];
-        let j = i - 1;
-        innerLoop();
-        function innerLoop() {
-            if (j >= 0 && barValue[j] > key) {
-                barValue[j + 1] = barValue[j];
-                recreateBar(barValue);
+                colorBar('red', bars.item(j + 1) as HTMLElement);
+                colorBar('green', bars.item(i) as HTMLElement);
                 j--;
-                setTimeout(innerLoop, delay);
-            } else {
-                i++;
-                key = barValue[i];
-                j = i - 1;
-                if (i < barValue.length) setTimeout(innerLoop, delay);
-                else smoothBarColor('green');
+                await timeout(delay);
             }
-            barValue[j + 1] = key;
-            colorBar('red', bars.item(j + 1) as HTMLElement);
-            colorBar('green', bars.item(i) as HTMLElement);
         }
     }
 
-    function selectionSort(delay: number) {
+    async function selectionSort(delay: number) {
         const bars = wrapper.children;
-        let i = 0,
-            j = i + 1,
-            minIndex = i;
-        innerLoop();
-        function innerLoop() {
-            recreateBar(barValue);
-            colorBar('green', bars.item(i) as HTMLElement);
-            colorBar('red', bars.item(j) as HTMLElement);
-            if (barValue[j] < barValue[minIndex]) minIndex = j;
-            j++;
-            if (j < barValue.length) {
-                setTimeout(innerLoop, delay);
-            } else {
-                let temp = barValue[i];
-                barValue[i] = barValue[minIndex];
-                barValue[minIndex] = temp;
-                i++;
-                minIndex = i;
-                j = i + 1;
-                if (i < barValue.length - 1) setTimeout(innerLoop, delay);
-                else smoothBarColor('green');
+        for (let i = 0; i < barValue.length; i++) {
+            let min = i;
+            for (let j = i + 1; j < barValue.length; j++) {
+                if (barValue[min] > barValue[j]) {
+                    min = j;
+                }
+                recreateBar(barValue);
+                colorBar('green', bars.item(i) as HTMLElement);
+                colorBar('red', bars.item(j) as HTMLElement);
+                await timeout(delay);
             }
+            let temp = barValue[i];
+            barValue[i] = barValue[min];
+            barValue[min] = temp;
         }
         recreateBar(barValue);
     }
 
     async function mergeSort(delay: number) {
         await innerMerge(0, barValue.length - 1);
-        smoothBarColor('green');
 
         async function innerMerge(left: number, right: number) {
             if (left < right) {
@@ -274,23 +243,19 @@ export function initSort() {
         }
     }
 
-    function sortBar(delay = 1) {
+    async function sortBar(delay = 1) {
+        startSortButton.disabled = true;
         chosenAlgorithmIndex = algorithmSelector.selectedIndex;
         if (isSorted()) return;
-        sortingFunction[chosenAlgorithmIndex].function(delay);
+        await sortingFunction[chosenAlgorithmIndex].function(delay);
+        finishSort();
         return;
     }
 
-    function randomizeBar(delay = 1) {
-        let id = window.setTimeout(function () {}, 0);
-        while (id--) {
-            window.clearTimeout(id);
-        }
-        let i = 0;
+    async function randomizeBar(delay = 1) {
+        clearProcess();
         const bars = wrapper.children;
-        innerLoop();
-
-        function innerLoop() {
+        for (let i = 0; i < totalBar; i++) {
             const randomIndex = getRandomInt(0, totalBar);
             let temp = barValue[i];
             barValue[i] = barValue[randomIndex];
@@ -298,10 +263,22 @@ export function initSort() {
             recreateBar(barValue);
             colorBar('purple', bars.item(i) as HTMLElement);
             colorBar('cyan', bars.item(randomIndex) as HTMLElement);
-            i++;
-            if (i < totalBar) setTimeout(innerLoop, delay);
-            else smoothBarColor('var(--font-color)');
+            await timeout(delay);
         }
+        smoothBarColor('var(--font-color)');
+    }
+
+    function finishSort() {
+        startSortButton.disabled = false;
+        smoothBarColor('green');
+    }
+
+    function clearProcess() {
+        let id = window.setTimeout(function () {}, 0);
+        while (id--) {
+            window.clearTimeout(id);
+        }
+        startSortButton.disabled = false;
     }
 
     async function timeout(ms: number) {
