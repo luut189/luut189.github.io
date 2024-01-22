@@ -92,6 +92,11 @@ input::placeholder {
     background-color: rgb(var(--box-color), var(--hover-scale));
     cursor: pointer;
 }
+
+.clickable:disabled {
+    background-color: rgb(var(--box-color), var(--hover-scale));
+    cursor: default;
+}
 /*  **  */
 
 /* About */
@@ -104,6 +109,10 @@ input::placeholder {
     border: none;
     float: left;
     clear: left;
+}
+
+.about-clickable:hover {
+    color: var(--font-color);
 }
 
 .about-clickable i {
