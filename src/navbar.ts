@@ -22,21 +22,22 @@ export function initNavBar() {
     const mainNavbar = document.getElementById('main-navbar') as HTMLElement;
     const sidebar = document.getElementById('sidebar') as HTMLElement;
     const intro = document.getElementById('intro') as HTMLDivElement;
+    intro.style.marginTop = `${mainNavbar.offsetHeight * 1.5}px`;
 
-    console.log(intro.innerHTML);
-    intro.style.marginTop = `${mainNavbar.offsetHeight + 20}px`
-    
+    window.addEventListener('resize', () => {
+        intro.style.marginTop = `${mainNavbar.offsetHeight * 1.5}px`;
+    });
 
     navbarItems.forEach((item) => {
         const childForMain = document.createElement('a');
         const childForSide = document.createElement('a');
         childForMain.innerHTML = item.displayName;
         childForMain.href = item.href;
-        childForMain.className = 'nav-clickable hide-on-mobile transition';
+        childForMain.className = 'nav-clickable hide-on-mobile';
 
         childForSide.innerHTML = item.displayName;
         childForSide.href = item.href;
-        childForSide.className = 'nav-clickable transition';
+        childForSide.className = 'nav-clickable';
 
         mainNavbar.appendChild(childForMain);
         mainNavbar.appendChild(document.getElementById('theme-toggle') as HTMLButtonElement);
