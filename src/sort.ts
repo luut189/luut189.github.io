@@ -87,6 +87,7 @@ export function initSort() {
         wrapper.replaceChildren();
         barValue.forEach((value) => {
             const bar = document.createElement('div');
+            bar.className = 'transition';
             bar.setAttribute('style', getBarStyle(value, 'var(--bar-color)'));
             wrapper.appendChild(bar);
         });

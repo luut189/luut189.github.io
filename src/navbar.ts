@@ -21,16 +21,22 @@ const navbarItems: NavBarItem[] = [
 export function initNavBar() {
     const mainNavbar = document.getElementById('main-navbar') as HTMLElement;
     const sidebar = document.getElementById('sidebar') as HTMLElement;
+    const intro = document.getElementById('intro') as HTMLDivElement;
+
+    console.log(intro.innerHTML);
+    intro.style.marginTop = `${mainNavbar.offsetHeight + 20}px`
+    
+
     navbarItems.forEach((item) => {
         const childForMain = document.createElement('a');
         const childForSide = document.createElement('a');
         childForMain.innerHTML = item.displayName;
         childForMain.href = item.href;
-        childForMain.className = 'nav-clickable hide-on-mobile';
+        childForMain.className = 'nav-clickable hide-on-mobile transition';
 
         childForSide.innerHTML = item.displayName;
         childForSide.href = item.href;
-        childForSide.className = 'nav-clickable';
+        childForSide.className = 'nav-clickable transition';
 
         mainNavbar.appendChild(childForMain);
         mainNavbar.appendChild(document.getElementById('theme-toggle') as HTMLButtonElement);
