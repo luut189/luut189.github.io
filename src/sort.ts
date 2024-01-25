@@ -247,7 +247,10 @@ export function initSort() {
     async function sortBar(delay = 1) {
         startSortButton.disabled = true;
         chosenAlgorithmIndex = algorithmSelector.selectedIndex;
-        if (isSorted()) return;
+        if (isSorted()) {
+            finishSort();
+            return;
+        }
         await sortingFunction[chosenAlgorithmIndex].function(delay);
         finishSort();
         return;
