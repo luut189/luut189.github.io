@@ -1,5 +1,5 @@
 :root {
-    --padding: 1vw;
+    --padding: 0.5rem;
     --margin: 6vw;
     --hover-scale: 0.5;
 }
@@ -52,6 +52,11 @@ input::placeholder {
     color: var(--placeholder-color);
 }
 
+main {
+    margin: auto;
+    max-width: 75%;
+}
+
 /* General wrapper */
 .wrapper {
     padding: var(--padding);
@@ -68,14 +73,13 @@ input::placeholder {
 }
 
 .content {
-    padding-left: var(--padding);
-    padding-right: var(--padding);
-    margin: 1rem;
+    margin: auto;
+    max-width: 90%;
 }
 
 .textbox {
     background-color: rgb(var(--box-color));
-    width: 40vw;
+    width: 80%;
     padding: var(--padding);
     margin: 1rem;
     border: none;
@@ -153,19 +157,6 @@ input::placeholder {
     right: 0;
 }
 
-.wrapper,
-.header,
-.content,
-#intro,
-#quote,
-#profile,
-#name,
-#prof,
-#avt {
-    margin-left: clamp(1vw, 3.5%, var(--margin));
-    margin-right: clamp(1vw, 3.5%, var(--margin));
-}
-
 nav {
     position: fixed;
     top: 0;
@@ -184,6 +175,14 @@ nav {
 nav div:first-child {
     margin: 1rem;
     margin-right: auto;
+}
+
+#main-navbar {
+    height: min-content;
+}
+
+#main-navbar * {
+    max-height: 50%;
 }
 
 .nav-clickable {
@@ -262,7 +261,6 @@ svg {
 }
 
 #form {
-    margin: 1rem;
     background-color: var(--wrapper-color);
     display: flex;
     justify-content: center;
@@ -270,7 +268,6 @@ svg {
 }
 
 #todo-list {
-    margin: 1rem;
     padding: 1rem;
     background-color: var(--wrapper-color);
 }
