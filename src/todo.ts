@@ -27,6 +27,7 @@ export function initToDo() {
         const li = document.createElement('li');
 
         li.innerHTML = todoText;
+        li.className = 'transition'
         li.onclick = () => {
             li.style.transform = 'scale(0)';
             todoData.splice(currentIndex, 1);
