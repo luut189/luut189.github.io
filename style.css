@@ -39,6 +39,7 @@
     border-radius: 1rem;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.15s ease-in-out;
 }
 
 body {
@@ -85,7 +86,6 @@ input::placeholder {
     margin: 1rem;
     padding: var(--padding);
     border: none;
-    transition: all 0.2s ease-in-out;
 }
 
 .clickable:hover {
@@ -97,10 +97,6 @@ input::placeholder {
     background-color: rgb(var(--box-color), var(--hover-scale));
     cursor: default;
 }
-
-.transition {
-    transition: all 0.2s ease-in-out;
-}
 /*  **  */
 
 /* About */
@@ -111,7 +107,6 @@ input::placeholder {
     padding-right: var(--padding);
     margin: 0;
     border: none;
-    transition: all 0.2s ease-in-out;
 }
 
 .about-clickable:hover {
@@ -143,7 +138,6 @@ input::placeholder {
     position: absolute;
     z-index: 1;
     right: 105%;
-    transition: all 0.2s ease-in-out;
 }
 
 .tooltip:hover .tooltip-text {
