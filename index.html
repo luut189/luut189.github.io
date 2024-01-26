@@ -90,73 +90,83 @@
                 <img id="avt" src="/img/avt.png" alt="Profile Picture" />
             </div>
 
-            <div class="wrapper" id="quote"></div>
+            <div id="playground" class="active">
+                <div class="wrapper" id="quote"></div>
 
-            <div class="wrapper">
-                <div class="header">Saved Link</div>
-                <div
-                    style="
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        background-color: var(--wrapper-color);
-                    "
-                    class="content"
-                    id="link-saver"></div>
-            </div>
-
-            <div class="wrapper">
-                <div class="header">To-do List</div>
-                <div class="content">
-                    <div id="form">
-                        <input
-                            type="text"
-                            class="textbox"
-                            id="new-todo"
-                            placeholder="Add new to do 📃" />
-                        <button class="clickable" id="add-todo">Add To-do</button>
-                        <button class="clickable" id="clear-todo">Clear To-do</button>
-                    </div>
-                    <ul id="todo-list">
-                        Things to do:
-                    </ul>
-                </div>
-            </div>
-
-            <div class="wrapper">
-                <div class="header">Sorting Visualizer</div>
-                <div class="content" style="padding: 1rem; background-color: var(--wrapper-color)">
+                <div class="wrapper">
+                    <div class="header">Saved Link</div>
                     <div
-                        id="sorting"
-                        style="
-                            display: flex;
-                            position: relative;
-                            align-items: self-end;
-                            background-color: var(--wrapper-color);
-                            margin: 1rem;
-                        "></div>
-                    <div
+                        style="display: flex; flex-wrap: wrap; justify-content: center"
                         class="content"
-                        style="
-                            display: flex;
-                            flex-wrap: wrap;
-                            justify-content: space-evenly;
-                            background-color: var(--wrapper-color);
-                        ">
-                        <button class="clickable" id="sort-start">Sort</button>
-                        <button class="clickable" id="random-start">Randomize</button>
-                        <button class="clickable" id="reset">Reset</button>
-                        <select
-                            name="Sorting Algorithm"
-                            id="sort-select"
-                            class="clickable"></select>
+                        id="link-saver"></div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="header">To-do List</div>
+                    <div class="content">
+                        <div id="form">
+                            <input
+                                type="text"
+                                class="textbox"
+                                id="new-todo"
+                                placeholder="Add new to do 📃" />
+                            <button class="clickable" id="add-todo">Add To-do</button>
+                            <button class="clickable" id="clear-todo">Clear To-do</button>
+                        </div>
+                        <div class="header">Things to do</div>
+                        <ul id="todo-list"></ul>
                     </div>
                 </div>
-            </div>
 
+                <div class="wrapper">
+                    <div class="header">Sorting Visualizer</div>
+                    <div class="content">
+                        <div
+                            id="sorting"
+                            style="
+                                display: flex;
+                                position: relative;
+                                align-items: self-end;
+                                margin: 1rem;
+                            "></div>
+                        <div
+                            class="content"
+                            style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
+                            <button class="clickable" id="sort-start">Sort</button>
+                            <button class="clickable" id="random-start">Randomize</button>
+                            <button class="clickable" id="reset">Reset</button>
+                            <select
+                                name="Sorting Algorithm"
+                                id="sort-select"
+                                class="clickable"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bottom-right tooltip"
+                    style="background-color: transparent; width: 3rem; height: 3rem">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1.2rem"
+                        height="1.2rem"
+                        fill="var(--font-color)"
+                        class="bi bi-exclamation-circle"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                        <path
+                            d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                    </svg>
+                    <span class="tooltip-text"> This is a tooltip! </span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
             <div class="wrapper">
                 <div class="header">About</div>
-                <div class="content" id="about">
+                <div id="about">
                     <a class="about-clickable" href="https://github.com/luut189">
                         <i class="fa fa-github"></i>@luut189</a
                     >
@@ -168,24 +178,7 @@
                     >
                 </div>
             </div>
-
-            <div
-                class="bottom-right tooltip"
-                style="background-color: transparent; width: 3rem; height: 3rem">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1.2rem"
-                    height="1.2rem"
-                    fill="var(--font-color)"
-                    class="bi bi-exclamation-circle"
-                    viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                    <path
-                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
-                </svg>
-                <span class="tooltip-text"> This is a tooltip! </span>
-            </div>
-        </main>
+        </footer>
 
         <script type="module" src="/src/index.ts"></script>
     </body>
