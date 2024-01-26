@@ -1,6 +1,5 @@
 :root {
     --padding: 0.5rem;
-    --margin: 6vw;
     --hover-scale: 0.5;
 }
 
@@ -64,6 +63,23 @@ li {
 }
 
 /* General wrapper */
+.inactive {
+    display: none;
+    border-style: solid;
+    box-shadow: 0px 0px 10px var(--shadow-color);
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px #445066;
+}
+
+.active > * {
+    max-width: 95%;
+    width: 90%;
+}
+
 .wrapper {
     padding: var(--padding);
     margin: 1rem;
@@ -76,11 +92,14 @@ li {
     margin: 1rem;
     font-size: 150%;
     font-weight: bold;
+    text-align: initial;
 }
 
 .content {
+    text-align: center;
     margin: auto;
     max-width: 90%;
+    background-color: var(--wrapper-color);
 }
 
 .textbox {
@@ -236,6 +255,51 @@ svg {
     flex-direction: column;
 }
 
+.section-selector {
+    margin: 1rem;
+}
+
+.section-selector ul {
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: fit-content;
+    align-items: center;
+    background-color: var(--wrapper-color);
+    box-shadow: 0px 5px 5px var(--shadow-color);
+    padding: 0;
+}
+
+.section-selector ul li {
+    border-radius: 100px;
+    width: min-content;
+    padding: var(--padding);
+    margin: 0.25rem;
+    text-align: center;
+    cursor: pointer;
+    color: #67698163;
+}
+
+.section-selector ul li:hover {
+    color: var(--font-color);
+}
+
+.section-selector ul .selected {
+    color: var(--font-color);
+    background-color: rgb(var(--box-color));
+}
+
+#side-section-selector ul {
+    border-radius: inherit;
+    margin: auto;
+    flex-direction: column;
+}
+
+#side-section-selector ul li {
+    border-radius: inherit;
+}
+
 #intro {
     padding: var(--padding);
     background-color: var(--wrapper-color);
@@ -279,7 +343,6 @@ svg {
 }
 
 #form {
-    background-color: var(--wrapper-color);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -287,10 +350,11 @@ svg {
 
 #todo-list {
     padding: 1rem;
-    background-color: var(--wrapper-color);
+    padding-top: 0;
 }
 
 #todo-list li {
+    text-align: initial;
     word-wrap: break-word;
 }
 
@@ -305,20 +369,20 @@ svg {
     flex-direction: column;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 650px) {
     .hide-on-mobile {
         display: none;
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 650px) {
     .hide-on-desktop {
         display: none;
     }
 }
 
 @media (max-width: 600px) {
-    #profile {
-        flex-wrap: wrap;
+    #avt {
+        display: none;
     }
 }
