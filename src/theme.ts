@@ -17,7 +17,7 @@ export function initTheme() {
         const themeToggleTooltip = document.getElementById(
             'theme-toggle-tooltip'
         ) as HTMLSpanElement;
-        themeToggleTooltip.innerHTML = `Switch ${oppositeTheme.replace('-', ' ')}`;
+        themeToggleTooltip.textContent = `Switch ${oppositeTheme.replace('-', ' ')}`;
     }
 
     function toggleTheme() {

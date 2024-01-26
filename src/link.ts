@@ -19,7 +19,7 @@ export function initLink() {
         const link = document.createElement('a');
         link.className = 'clickable';
         link.href = http + web.url;
-        link.innerHTML = web.name;
+        link.textContent = web.name;
         link.style.transform = 'scale(0)';
         setTimeout(() => {
             link.style.transform = 'scale(1)';

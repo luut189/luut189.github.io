@@ -6,15 +6,16 @@
 
 .theme-dark {
     --font-color: #eef5ff;
-    --shadow-color: #2d3b4763;
+    --shadow-color: #010409;
     --placeholder-color: #dbe2ec;
     --hyperlink-color: #aad7ff;
 
-    --background-color: #000000;
-    --wrapper-color: #1e1f20;
-    --box-color: 28, 58, 114;
+    --background-color: #010409;
+    --wrapper-color: #0d1117;
+    --box-color: 37, 42, 48;
+    --border-color: #a1a1a1;
 
-    --bar-color: #1c3a72;
+    --bar-color: #163b80;
 }
 
 .theme-light {
@@ -26,6 +27,7 @@
     --background-color: #e4e5f1;
     --wrapper-color: #cecfe0;
     --box-color: 241, 241, 241;
+    --border-color: #800080;
 
     --bar-color: #8282a0;
 }
@@ -57,6 +59,10 @@ main {
     max-width: 75%;
 }
 
+li {
+    list-style: none;
+}
+
 /* General wrapper */
 .wrapper {
     padding: var(--padding);
@@ -79,10 +85,20 @@ main {
 
 .textbox {
     background-color: rgb(var(--box-color));
+    border-color: rgb(var(--box-color));
     width: 80%;
     padding: var(--padding);
     margin: 1rem;
-    border: none;
+    border-style: solid;
+    box-shadow: 0px 5px 5px var(--shadow-color);
+}
+
+.textbox:focus {
+    outline: none;
+}
+
+.textbox:hover {
+    border-color: var(--border-color);
 }
 
 .clickable {
@@ -90,6 +106,7 @@ main {
     margin: 1rem;
     padding: var(--padding);
     border: none;
+    box-shadow: 0px 5px 5px var(--shadow-color);
 }
 
 .clickable:hover {
@@ -224,13 +241,14 @@ svg {
     background-color: var(--wrapper-color);
     text-align: center;
     overflow-wrap: break-word;
+    box-shadow: 0px 5px 5px var(--shadow-color);
 }
 
 #quote {
-    padding: var(--padding);
     background-color: var(--wrapper-color);
     text-align: center;
     overflow-wrap: break-word;
+    box-shadow: 0px 5px 5px var(--shadow-color);
 }
 
 #profile {
@@ -243,7 +261,7 @@ svg {
 #name {
     margin: 1rem;
     padding: var(--padding);
-    font-size: 200%;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -273,14 +291,10 @@ svg {
 }
 
 #todo-list li {
-    margin: 1rem;
-    padding: 0.5rem;
     word-wrap: break-word;
-    background-color: rgb(var(--box-color));
 }
 
 #todo-list li:hover {
-    background-color: rgb(var(--box-color), var(--hover-scale));
     text-decoration: line-through;
 }
 

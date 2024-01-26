@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -90,12 +90,17 @@
                 <img id="avt" src="/img/avt.png" alt="Profile Picture" />
             </div>
 
-            <div class="wrapper" id="quote-wrapper"></div>
+            <div class="wrapper" id="quote"></div>
 
             <div class="wrapper">
                 <div class="header">Saved Link</div>
                 <div
-                    style="display: flex; flex-wrap: wrap; justify-content: center"
+                    style="
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        background-color: var(--wrapper-color);
+                    "
                     class="content"
                     id="link-saver"></div>
             </div>
@@ -108,7 +113,7 @@
                             type="text"
                             class="textbox"
                             id="new-todo"
-                            placeholder="📃 Add new to do" />
+                            placeholder="Add new to do 📃" />
                         <button class="clickable" id="add-todo">Add To-do</button>
                         <button class="clickable" id="clear-todo">Clear To-do</button>
                     </div>
@@ -141,7 +146,10 @@
                         <button class="clickable" id="sort-start">Sort</button>
                         <button class="clickable" id="random-start">Randomize</button>
                         <button class="clickable" id="reset">Reset</button>
-                        <select name="Sorting Algorithm" id="sort-select" class="textbox"></select>
+                        <select
+                            name="Sorting Algorithm"
+                            id="sort-select"
+                            class="clickable"></select>
                     </div>
                 </div>
             </div>
