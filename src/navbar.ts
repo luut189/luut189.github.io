@@ -31,11 +31,11 @@ export function initNavBar() {
     navbarItems.forEach((item) => {
         const childForMain = document.createElement('a');
         const childForSide = document.createElement('a');
-        childForMain.innerHTML = item.displayName;
+        childForMain.textContent = item.displayName;
         childForMain.href = item.href;
         childForMain.className = 'nav-clickable hide-on-mobile';
 
-        childForSide.innerHTML = item.displayName;
+        childForSide.textContent = item.displayName;
         childForSide.href = item.href;
         childForSide.className = 'nav-clickable';
 
