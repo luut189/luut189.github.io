@@ -1,20 +1,24 @@
 interface NavBarItem {
     displayName: string;
     href: string;
+    isNotDefault: boolean;
 }
 
 const navbarItems: NavBarItem[] = [
     {
+        displayName: 'Home',
+        href: '#home',
+        isNotDefault: true,
+    },
+    {
         displayName: 'Resume',
         href: '/resume.pdf',
+        isNotDefault: false,
     },
     {
-        displayName: 'Lorem Ipsum',
-        href: '/',
-    },
-    {
-        displayName: 'Contact',
+        displayName: 'About',
         href: '#about',
+        isNotDefault: true,
     },
 ];
 
@@ -31,13 +35,8 @@ export function initNavBar() {
     navbarItems.forEach((item) => {
         const childForMain = document.createElement('a');
         const childForSide = document.createElement('a');
-        childForMain.textContent = item.displayName;
-        childForMain.href = item.href;
-        childForMain.className = 'nav-clickable hide-on-mobile';
-
-        childForSide.textContent = item.displayName;
-        childForSide.href = item.href;
-        childForSide.className = 'nav-clickable';
+        setupAnchorElement(item, childForMain);
+        setupAnchorElement(item, childForSide);
 
         mainNavbar.appendChild(childForMain);
         mainNavbar.appendChild(document.getElementById('theme-toggle') as HTMLButtonElement);
@@ -66,4 +65,16 @@ export function initNavBar() {
             sidebar.style.display = 'none';
         }, 200);
     });
+}
+
+function setupAnchorElement(item: NavBarItem, ele: HTMLAnchorElement) {
+    ele.textContent = item.displayName;
+    ele.href = item.href;
+    if (item.isNotDefault) {
+        ele.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById(item.href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    ele.className = 'nav-clickable hide-on-mobile';
 }

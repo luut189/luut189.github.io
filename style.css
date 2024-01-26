@@ -310,6 +310,10 @@ svg {
     border-radius: inherit;
 }
 
+#home {
+    scroll-margin-top: 15rem;
+}
+
 #profile {
     display: flex;
     justify-content: space-between;
