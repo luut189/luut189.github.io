@@ -103,6 +103,14 @@ li {
 }
 
 .textbox {
+    text-align: center;
+    padding: var(--padding);
+    overflow-wrap: break-word;
+    background-color: var(--wrapper-color);
+    box-shadow: 0px 5px 5px var(--shadow-color);
+}
+
+.input-text {
     background-color: rgb(var(--box-color));
     border-color: rgb(var(--box-color));
     width: 80%;
@@ -112,11 +120,11 @@ li {
     box-shadow: 0px 5px 5px var(--shadow-color);
 }
 
-.textbox:focus {
+.input-text:focus {
     outline: none;
 }
 
-.textbox:hover {
+.input-text:hover {
     border-color: var(--border-color);
 }
 
@@ -298,21 +306,6 @@ svg {
 
 #side-section-selector ul li {
     border-radius: inherit;
-}
-
-#intro {
-    padding: var(--padding);
-    background-color: var(--wrapper-color);
-    text-align: center;
-    overflow-wrap: break-word;
-    box-shadow: 0px 5px 5px var(--shadow-color);
-}
-
-#quote {
-    background-color: var(--wrapper-color);
-    text-align: center;
-    overflow-wrap: break-word;
-    box-shadow: 0px 5px 5px var(--shadow-color);
 }
 
 #profile {

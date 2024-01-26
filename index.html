@@ -78,7 +78,7 @@
         </header>
 
         <main>
-            <div id="intro">
+            <div class="textbox" id="intro">
                 Hey, I am a freshman at University of Waterloo with development hobbies!
             </div>
 
@@ -103,29 +103,32 @@
             <section id="experience">
                 <div class="wrapper">
                     <div class="header">To be added</div>
-                    <div class="content card">Site in construction</div>
+                    <div class="content card">Site under construction 👷</div>
                 </div>
             </section>
 
             <section id="skill">
                 <div class="wrapper">
                     <div class="header">To be added</div>
-                    <div class="content card">Site in construction</div>
+                    <div class="content card">Site under construction 👷</div>
                 </div>
             </section>
 
             <section id="project">
                 <div class="wrapper">
                     <div class="header">To be added</div>
-                    <div class="content card">Site in construction</div>
+                    <div class="content card">Site under construction 👷</div>
                 </div>
             </section>
 
             <section id="playground">
                 <div class="wrapper">
-                    <div class="content">This is a my personal playground to add random stuff.</div>
+                    <div class="textbox">This is a my personal playground to add random stuff.</div>
                 </div>
-                <div class="wrapper" id="quote"></div>
+
+                <div class="header"></div>
+
+                <div class="wrapper textbox" id="quote"></div>
 
                 <div class="wrapper">
                     <div class="header">Saved Link</div>
@@ -141,13 +144,13 @@
                         <div id="form">
                             <input
                                 type="text"
-                                class="textbox"
+                                class="input-text"
                                 id="new-todo"
                                 placeholder="Add new to do 📃" />
                             <button class="clickable" id="add-todo">Add To-do</button>
                             <button class="clickable" id="clear-todo">Clear To-do</button>
                         </div>
-                        <div class="header">Things to do</div>
+                        <div class="header"></div>
                         <ul id="todo-list"></ul>
                     </div>
                 </div>
@@ -162,6 +165,7 @@
                                 position: relative;
                                 align-items: self-end;
                                 margin: 1rem;
+                                padding: var(--padding);
                             "></div>
                         <div
                             class="content"
@@ -175,24 +179,6 @@
                                 class="clickable"></select>
                         </div>
                     </div>
-                </div>
-
-                <div
-                    class="bottom-right tooltip"
-                    style="background-color: transparent; width: 3rem; height: 3rem">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="1.2rem"
-                        height="1.2rem"
-                        fill="var(--font-color)"
-                        class="bi bi-exclamation-circle"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                        <path
-                            d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
-                    </svg>
-                    <span class="tooltip-text"> This is a tooltip! </span>
                 </div>
             </section>
         </main>
@@ -211,6 +197,23 @@
                         <i class="fa fa-instagram"></i>@_kyzeeeeel</a
                     >
                 </div>
+            </div>
+
+            <div
+                class="bottom-right tooltip"
+                style="background-color: transparent; width: 3rem; height: 3rem">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1.2rem"
+                    height="1.2rem"
+                    fill="var(--font-color)"
+                    class="bi bi-exclamation-circle"
+                    viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                </svg>
+                <span class="tooltip-text"> This is a tooltip! </span>
             </div>
         </footer>
 
