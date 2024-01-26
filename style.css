@@ -6,7 +6,7 @@
 .theme-dark {
     --font-color: #eef5ff;
     --shadow-color: #010409;
-    --placeholder-color: #dbe2ec;
+    --placeholder-color: #6d7074;
     --hyperlink-color: #aad7ff;
 
     --background-color: #010409;
@@ -20,7 +20,7 @@
 .theme-light {
     --font-color: #484b6a;
     --shadow-color: #484b6a63;
-    --placeholder-color: #3b3d57;
+    --placeholder-color: #898a96;
     --hyperlink-color: #3d6d97;
 
     --background-color: #e4e5f1;
@@ -83,7 +83,6 @@ li {
 .wrapper {
     padding: var(--padding);
     margin: 1rem;
-    /* background-color: red; */
 }
 
 .header {
@@ -119,10 +118,6 @@ li {
     margin: 1rem;
     border-style: solid;
     box-shadow: 0px 5px 5px var(--shadow-color);
-}
-
-.input-text::placeholder {
-    color: gray;
 }
 
 .input-text:focus,
@@ -181,7 +176,7 @@ li {
     background-color: var(--wrapper-color);
     color: var(--font-color);
     text-align: center;
-    margin: 0;
+    margin-right: 0.5rem;
     padding: var(--padding);
     box-shadow: 0px 5px 5px var(--shadow-color);
 
@@ -210,6 +205,7 @@ nav {
     background-color: var(--wrapper-color);
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     border-radius: 0;
     z-index: 999;
     background-color: var(--wrapper-color);
@@ -224,11 +220,15 @@ nav div:first-child {
 }
 
 #main-navbar {
-    height: min-content;
+    height: fit-content;
 }
 
-#main-navbar * {
+#main-navbar > * {
     max-height: 50%;
+}
+
+#main-navbar div svg {
+    padding: var(--padding);
 }
 
 .nav-clickable {
@@ -254,9 +254,9 @@ svg {
     width: max-content;
     top: 0;
     right: 0;
-    height: 100vh;
+    height: 50%;
     z-index: 999;
-    border-radius: 0;
+    border-bottom-left-radius: 1rem;
     background-color: var(--wrapper-color);
     box-shadow: -10px 0 10px var(--shadow-color);
     display: none;
@@ -288,7 +288,7 @@ svg {
     margin: 0.25rem;
     text-align: center;
     cursor: pointer;
-    color: #67698163;
+    color: var(--placeholder-color);
 }
 
 .section-selector ul li:hover {
@@ -364,13 +364,13 @@ svg {
     flex-direction: column;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
     .hide-on-mobile {
         display: none;
     }
 }
 
-@media (min-width: 650px) {
+@media (min-width: 700px) {
     .hide-on-desktop {
         display: none;
     }
