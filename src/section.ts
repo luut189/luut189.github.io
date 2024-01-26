@@ -1,7 +1,7 @@
 import { ELEMENT_DELAY } from './constants';
 
-interface Section {
-    associatedSection: HTMLElement;
+type Section = {
+    HTMLSection: HTMLElement;
     displayText: string;
     selected: boolean;
 }
@@ -13,22 +13,22 @@ const sideSectionSelector = document.getElementById('side-section-selector')!
 
 const sections: Section[] = [
     {
-        associatedSection: document.getElementById('experience')!,
+        HTMLSection: document.getElementById('experience')!,
         displayText: 'Experience',
         selected: false,
     },
     {
-        associatedSection: document.getElementById('skill')!,
+        HTMLSection: document.getElementById('skill')!,
         displayText: 'Skills',
         selected: false,
     },
     {
-        associatedSection: document.getElementById('project')!,
+        HTMLSection: document.getElementById('project')!,
         displayText: 'Projects',
         selected: false,
     },
     {
-        associatedSection: document.getElementById('playground')!,
+        HTMLSection: document.getElementById('playground')!,
         displayText: 'Playground',
         selected: true,
     },
@@ -40,11 +40,10 @@ let currentSelectedSection: Section = sections.find((sec) => {
 })!;
 
 export function initSectionSelector() {
-    mainSectionSelector.replaceChildren();
-    sideSectionSelector.replaceChildren();
     sections.forEach((sec) => {
         const liForMain = document.createElement('li');
         const liForSide = document.createElement('li');
+
         setupElement(liForMain, sec);
         setupElement(liForSide, sec);
 
@@ -56,12 +55,12 @@ export function initSectionSelector() {
 function setupElement(ele: HTMLElement, sec: Section) {
     ele.textContent = sec.displayText;
     if (sec.selected) {
-        sec.associatedSection.classList.remove('inactive');
-        sec.associatedSection.classList.add('active');
+        sec.HTMLSection.classList.remove('inactive');
+        sec.HTMLSection.classList.add('active');
         ele.classList.add('selected');
     } else {
-        sec.associatedSection.classList.remove('active');
-        sec.associatedSection.classList.add('inactive');
+        sec.HTMLSection.classList.remove('active');
+        sec.HTMLSection.classList.add('inactive');
     }
 
     ele.addEventListener('click', () => {
@@ -77,12 +76,26 @@ function handleClick(sec: Section) {
 
     sec.selected = true;
 
-    currentSelectedSection.associatedSection.style.transform = 'translate(0, 1rem)';
-    currentSelectedSection.associatedSection.style.opacity = '0';
+    currentSelectedSection.HTMLSection.style.transform = 'translate(0, 1rem)';
+    currentSelectedSection.HTMLSection.style.opacity = '0';
     setTimeout(() => {
-        currentSelectedSection.associatedSection.style.transform = 'translate(0)';
-        currentSelectedSection.associatedSection.style.opacity = '1';
+        currentSelectedSection.HTMLSection.style.transform = 'translate(0)';
+        currentSelectedSection.HTMLSection.style.opacity = '1';
     }, ELEMENT_DELAY);
 
-    initSectionSelector();
+    for (let i = 0; i < sections.length; i++) {
+        let sec = sections[i];
+
+        if (sec.selected) {
+            mainSectionSelector.children.item(i)?.classList.add('selected');
+            sideSectionSelector.children.item(i)?.classList.add('selected');
+            sec.HTMLSection.classList.remove('inactive');
+            sec.HTMLSection.classList.add('active');
+        } else {
+            mainSectionSelector.children.item(i)?.classList.remove('selected');
+            sideSectionSelector.children.item(i)?.classList.remove('selected');
+            sec.HTMLSection.classList.remove('active');
+            sec.HTMLSection.classList.add('inactive');
+        }
+    }
 }
