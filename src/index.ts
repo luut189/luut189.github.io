@@ -3,6 +3,7 @@
 import { initLink } from './link';
 import { initNavBar } from './navbar';
 import { initQuote } from './quotes';
+import { initSectionSelector } from './section';
 import { initSort } from './sort';
 import { initTheme } from './theme';
 import { initToDo } from './todo';
@@ -21,6 +22,7 @@ function initAnimation() {
 
 initTheme();
 initNavBar();
+initSectionSelector();
 initQuote();
 initLink();
 initToDo();
