@@ -64,6 +64,23 @@ li {
 }
 
 /* General wrapper */
+.inactive {
+    display: none;
+    border-style: solid;
+    box-shadow: 0px 0px 10px var(--shadow-color);
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px #445066;
+}
+
+.active > * {
+    max-width: 95%;
+    width: 90%;
+}
+
 .wrapper {
     padding: var(--padding);
     margin: 1rem;
@@ -81,6 +98,7 @@ li {
 .content {
     margin: auto;
     max-width: 90%;
+    background-color: var(--wrapper-color);
 }
 
 .textbox {
@@ -279,7 +297,6 @@ svg {
 }
 
 #form {
-    background-color: var(--wrapper-color);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -287,7 +304,7 @@ svg {
 
 #todo-list {
     padding: 1rem;
-    background-color: var(--wrapper-color);
+    padding-top: 0;
 }
 
 #todo-list li {
