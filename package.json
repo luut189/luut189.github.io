@@ -8,7 +8,8 @@
     },
     "scripts": {
         "dev": "vite --port 8080",
-        "build": "vite build --outDir docs"
+        "build": "vite build --outDir docs",
+        "deploy": "git checkout gh-pages && git pull origin main && npm run build && git commit . -m \"build: latest change\" && git push && git checkout main"
     },
     "keywords": [],
     "author": "Tuong Luu",
