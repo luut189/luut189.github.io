@@ -1,12 +1,18 @@
 import { ELEMENT_DELAY } from './constants';
 
+interface ToDoItem {
+    text: string;
+    associatedHTML: HTMLElement;
+    index: number;
+}
+
 export function initToDo() {
     const newTodo = document.querySelector('#new-todo') as HTMLInputElement;
     const todoList = document.getElementById('todo-list') as HTMLUListElement;
     const addTodoButton = document.getElementById('add-todo') as HTMLButtonElement;
     const clearTodoButton = document.getElementById('clear-todo') as HTMLButtonElement;
     const existingTodo = JSON.parse(localStorage.getItem('todos') || '[]');
-    const todoData: string[] = [];
+    const todoData: ToDoItem[] = [];
     let currentIndex = -1;
 
     addTodoButton.addEventListener('click', () => {
@@ -23,37 +29,56 @@ export function initToDo() {
     function addTodo(todoText: string, delay = 100) {
         if (todoText.length == 0) return;
         currentIndex++;
-        todoData.push(todoText);
-        const li = document.createElement('li');
+        const todoItem: ToDoItem = {
+            text: todoText,
+            associatedHTML: document.createElement('li'),
+            index: currentIndex,
+        };
 
-        li.textContent = todoText;
-        li.className = 'clickable'
-        li.onclick = () => {
-            li.style.transform = 'scale(0)';
-            todoData.splice(currentIndex, 1);
+        todoItem.associatedHTML.textContent = todoText;
+        todoItem.associatedHTML.className = 'clickable';
+
+        todoItem.associatedHTML.onclick = () => {
+            todoItem.associatedHTML.style.transform = 'scale(0)';
+            todoData.splice(todoItem.index, 1);
+            todoData.forEach((item) => {
+                if (item.index >= todoItem.index) {
+                    item.index--;
+                    console.log('hi');
+                    
+                }
+            });
+
             currentIndex--;
+
             localStorage.removeItem('todos');
             localStorage.setItem('todos', JSON.stringify(todoData));
 
             setTimeout(() => {
-                const parent = li.parentNode as ParentNode;
-                parent.removeChild(li);
+                const parent = todoItem.associatedHTML.parentNode as ParentNode;
+                parent.removeChild(todoItem.associatedHTML);
             }, 200);
         };
         newTodo.value = '';
 
-        li.style.transform = 'scale(0)';
+        todoItem.associatedHTML.style.transform = 'scale(0)';
         setTimeout(() => {
-            li.style.transform = 'scale(1)';
+            todoItem.associatedHTML.style.transform = 'scale(1)';
         }, delay);
-        todoList.appendChild(li);
+
+        todoData.push(todoItem);
+
+        todoList.appendChild(todoItem.associatedHTML);
         localStorage.setItem('todos', JSON.stringify(todoData));
     }
 
     function clearTodo() {
         let delay = ELEMENT_DELAY;
+
+        currentIndex = -1;
         todoData.splice(0, todoData.length);
         localStorage.removeItem('todos');
+        
         const allTodos = todoList.children;
         for (let i = allTodos.length - 1; i >= 0; i--) {
             setTimeout(() => {
