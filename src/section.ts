@@ -4,7 +4,7 @@ type Section = {
     HTMLSection: HTMLElement;
     displayText: string;
     selected: boolean;
-}
+};
 
 const mainSectionSelector = document.getElementById('main-section-selector')!
     .firstElementChild as HTMLDivElement;
