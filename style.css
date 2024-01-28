@@ -55,7 +55,7 @@ input::placeholder {
 
 main {
     margin: auto;
-    max-width: 75%;
+    max-width: 55%;
 }
 
 li {
@@ -140,6 +140,7 @@ li {
 
 .clickable:disabled {
     background-color: rgb(var(--box-color), var(--hover-scale));
+    transform: scale(0.9) !important;
     cursor: default;
 }
 /*  **  */
@@ -267,6 +268,9 @@ svg {
 
 .section-selector {
     margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .section-selector ul {
@@ -316,7 +320,7 @@ svg {
 
 #profile {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 1rem;
 }
