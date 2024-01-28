@@ -35,8 +35,8 @@ export function initNavBar() {
     navbarItems.forEach((item) => {
         const childForMain = document.createElement('a');
         const childForSide = document.createElement('a');
-        setupAnchorElement(item, childForMain);
-        setupAnchorElement(item, childForSide);
+        setupAnchorElement(item, childForMain, false);
+        setupAnchorElement(item, childForSide, true);
 
         mainNavbar.appendChild(childForMain);
         mainNavbar.appendChild(document.getElementById('theme-toggle') as HTMLButtonElement);
@@ -67,7 +67,7 @@ export function initNavBar() {
     });
 }
 
-function setupAnchorElement(item: NavBarItem, ele: HTMLAnchorElement) {
+function setupAnchorElement(item: NavBarItem, ele: HTMLAnchorElement, isSideBar: boolean) {
     ele.textContent = item.displayName;
     ele.href = item.href;
     if (item.isNotDefault) {
@@ -77,4 +77,5 @@ function setupAnchorElement(item: NavBarItem, ele: HTMLAnchorElement) {
         });
     }
     ele.className = 'nav-clickable hide-on-mobile';
+    if (isSideBar) ele.classList.remove('hide-on-mobile');
 }
