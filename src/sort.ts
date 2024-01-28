@@ -2,7 +2,7 @@ import { getRandomInt } from './utils';
 
 interface Sorter {
     name: string;
-    function: Function;
+    function: (delay: number) => void;
 }
 
 export function initSort() {
@@ -12,9 +12,8 @@ export function initSort() {
     const resetButton = document.getElementById('reset') as HTMLButtonElement;
     const algorithmSelector = document.getElementById('sort-select') as HTMLSelectElement;
 
-    const defaultWidth = 5;
-    const scale = 20;
-    let totalBar = document.documentElement.offsetWidth / scale;
+    const scale = 10;
+    let totalBar = wrapper.offsetWidth / scale;
     let barValue: number[] = [];
 
     let chosenAlgorithmIndex = 0;
@@ -60,9 +59,7 @@ export function initSort() {
     });
 
     function getBarStyle(value: number, color: string) {
-        return `margin: 0; width: ${
-            totalBar / 20 > defaultWidth ? totalBar / 20 : defaultWidth
-        }px; height: ${value}px; background-color: ${color}`;
+        return `width: 5px; height: ${value}px; background-color: ${color}`;
     }
 
     function colorBar(color: string, bar: HTMLElement, delay = 1) {
@@ -73,7 +70,7 @@ export function initSort() {
     }
 
     function initBar(firstInit: boolean) {
-        totalBar = document.documentElement.offsetWidth / scale;
+        totalBar = wrapper.offsetWidth / scale;
         if (!firstInit) clearProcess();
         barValue = [];
         for (let i = 0; i < totalBar; i++) {
@@ -87,7 +84,6 @@ export function initSort() {
         wrapper.replaceChildren();
         barValue.forEach((value) => {
             const bar = document.createElement('div');
-            bar.className = 'transition';
             bar.setAttribute('style', getBarStyle(value, 'var(--bar-color)'));
             wrapper.appendChild(bar);
         });
@@ -97,7 +93,7 @@ export function initSort() {
         const bars = wrapper.children;
         for (let i = 0; i < totalBar; i++) {
             colorBar(color, bars.item(i) as HTMLElement, 200);
-            await timeout(10);
+            await timeout(scale);
         }
     }
 
