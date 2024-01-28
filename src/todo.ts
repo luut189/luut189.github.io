@@ -11,7 +11,7 @@ export function initToDo() {
     const todoList = document.getElementById('todo-list') as HTMLUListElement;
     const addTodoButton = document.getElementById('add-todo') as HTMLButtonElement;
     const clearTodoButton = document.getElementById('clear-todo') as HTMLButtonElement;
-    const existingTodo = JSON.parse(localStorage.getItem('todos') || '[]');
+    const existingTodo: ToDoItem[] = JSON.parse(localStorage.getItem('todos') || '[]');
     const todoData: ToDoItem[] = [];
     let currentIndex = -1;
 
@@ -21,8 +21,8 @@ export function initToDo() {
     clearTodoButton.addEventListener('click', clearTodo);
 
     let todoDelay = ELEMENT_DELAY;
-    existingTodo.forEach((todo: string) => {
-        addTodo(todo, todoDelay);
+    existingTodo.forEach((todo) => {
+        addTodo(todo.text, todoDelay);
         todoDelay += ELEMENT_DELAY;
     });
 
@@ -44,8 +44,6 @@ export function initToDo() {
             todoData.forEach((item) => {
                 if (item.index >= todoItem.index) {
                     item.index--;
-                    console.log('hi');
-                    
                 }
             });
 
@@ -78,7 +76,7 @@ export function initToDo() {
         currentIndex = -1;
         todoData.splice(0, todoData.length);
         localStorage.removeItem('todos');
-        
+
         const allTodos = todoList.children;
         for (let i = allTodos.length - 1; i >= 0; i--) {
             setTimeout(() => {
