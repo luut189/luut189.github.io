@@ -254,7 +254,7 @@ svg {
     width: max-content;
     top: 0;
     right: 0;
-    height: 50%;
+    height: fit-content;
     z-index: 999;
     border-bottom-left-radius: 1rem;
     background-color: var(--wrapper-color);
