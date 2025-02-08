@@ -1,5 +1,6 @@
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { GitHub } from '@/components/ui/icons';
 import { Image } from 'lucide-react';
 
 interface ProjectCardProps {
@@ -7,10 +8,11 @@ interface ProjectCardProps {
     imageUrl: string;
     description: string;
     technologies: string[];
-    projectUrl: string;
+    githubUrl?: string;
+    projectUrl?: string;
 }
 
-function ProjectCard({ title, imageUrl, description, technologies, projectUrl }: ProjectCardProps) {
+function ProjectCard({ title, imageUrl, description, technologies, githubUrl }: ProjectCardProps) {
     return (
         <Card className='overflow-hidden border-0 shadow-lg dark:shadow-slate-900'>
             <CardHeader className='flex items-center justify-center'>
@@ -38,7 +40,9 @@ function ProjectCard({ title, imageUrl, description, technologies, projectUrl }:
                     ))}
                 </div>
                 <Button className='ml-auto' asChild>
-                    <a href={projectUrl}>View Project</a>
+                    <a href={githubUrl} className='flex items-center justify-center'>
+                        View Project <GitHub />
+                    </a>
                 </Button>
             </CardFooter>
         </Card>
