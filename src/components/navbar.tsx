@@ -16,7 +16,7 @@ export default function Navbar() {
             <div
                 className='flex cursor-pointer items-center gap-2 text-xl font-bold'
                 onClick={() => navigate('/')}>
-                <Signature /> T's
+                <Signature /> Kyzel's
             </div>
             <div className='ml-auto flex items-center justify-center'>
                 {routes.map((route, idx) =>
