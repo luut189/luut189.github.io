@@ -25,6 +25,8 @@ export default function ContactsDisplay() {
                 <a
                     key={idx}
                     className='transition-colors hover:text-muted-foreground'
+                    rel='noopener noreferrer'
+                    target='_blank'
                     href={contact.href}>
                     {contact.display}
                 </a>

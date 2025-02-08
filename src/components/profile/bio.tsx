@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 function IntroBubble() {
     return (
         <div className='m-auto flex w-full items-center justify-center rounded-xl border p-4 text-center text-xl shadow-md dark:shadow-slate-900'>
-            Hello, I am a sophomore student at University of Waterloo with development hobbies!
+            Hello, I am a 2A student at University of Waterloo with development hobbies!
         </div>
     );
 }
