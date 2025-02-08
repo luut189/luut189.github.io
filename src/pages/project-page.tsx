@@ -7,15 +7,15 @@ const projects: ProjectCardProps[] = [
         description:
             'A MERN stack-powered anime forum where fans can discuss, track, and pin favorite anime. It features daily anime highlights, checklists, watch lists, and interactive discussions, all in a sleek and responsive design.',
         technologies: ['MongoDB', 'Express', 'Node.js', 'React'],
-        projectUrl: 'https://github.com/luut189/anime-discuss',
+        githubUrl: 'https://github.com/luut189/anime-discuss',
     },
     {
-        title: 'Tetris Clone (Biquardis)',
-        imageUrl: '',
+        title: 'Tetris Clone (Biquadris)',
+        imageUrl: '/projects/biquadris.png',
         description:
             'A Tetris game developed using C++ with a focus on Software Development Lifecycle (SDLC), including planning, UML modeling, testing, and deployment. Implemented Object-Oriented Programming (OOP) principles with design patterns like Observer, Decorator, and Factory for maintainability.',
         technologies: ['C++', 'Make', 'Valgrind'],
-        projectUrl: 'https://github.com/ntung110/cs246-f24-biquadris',
+        githubUrl: 'https://github.com/ntung110/cs246-f24-biquadris',
     },
     {
         title: '2D Game',
@@ -23,7 +23,7 @@ const projects: ProjectCardProps[] = [
         description:
             'A top-down 2D game built in Java, demonstrating performance optimizations for handling over 10,000 entities. Applied Object-Oriented Programming principles to enhance entity development and maintainability.',
         technologies: ['Java', 'Javadoc'],
-        projectUrl: 'https://github.com/luut189/2DGame',
+        githubUrl: 'https://github.com/luut189/2DGame',
     },
 ];
 
@@ -36,7 +36,7 @@ export default function ProjectPage() {
                     imageUrl={project.imageUrl}
                     description={project.description}
                     technologies={project.technologies}
-                    projectUrl={project.projectUrl}
+                    githubUrl={project.githubUrl}
                 />
             ))}
         </>

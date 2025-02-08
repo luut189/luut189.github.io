@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+import Navbar from '@/components/layout/navbar';
+import Footer from '@/components/layout/footer';
 import Homepage from '@/pages/homepage';
 import PageNotFound from '@/pages/not-found';
 import ProjectPage from '@/pages/project-page';
