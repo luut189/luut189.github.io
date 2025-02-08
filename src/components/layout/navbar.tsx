@@ -22,7 +22,7 @@ export default function Navbar() {
                 {routes.map((route, idx) =>
                     route.external ? (
                         <Button key={idx} variant={'link'} className='text-lg' asChild>
-                            <a href={route.href} rel='noopener noreferrer'>
+                            <a href={route.href} rel='noopener noreferrer' target='_blank'>
                                 {route.display}
                             </a>
                         </Button>

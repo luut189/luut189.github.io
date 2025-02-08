@@ -2,6 +2,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button';
 import { GitHub } from '@/components/ui/icons';
 import { Image } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
     title: string;
@@ -10,11 +11,20 @@ interface ProjectCardProps {
     technologies: string[];
     githubUrl?: string;
     projectUrl?: string;
+    className?: string;
 }
 
-function ProjectCard({ title, imageUrl, description, technologies, githubUrl }: ProjectCardProps) {
+function ProjectCard({
+    title,
+    imageUrl,
+    description,
+    technologies,
+    githubUrl,
+    projectUrl,
+    className,
+}: ProjectCardProps) {
     return (
-        <Card className='overflow-hidden border-0 shadow-lg dark:shadow-slate-900'>
+        <Card className={cn('overflow-hidden border-0 shadow-lg dark:shadow-slate-900', className)}>
             <CardHeader className='flex items-center justify-center'>
                 {imageUrl ? (
                     <img
@@ -30,7 +40,9 @@ function ProjectCard({ title, imageUrl, description, technologies, githubUrl }: 
                 )}
             </CardHeader>
             <CardContent className='flex flex-col justify-center gap-2'>
-                <p className='flex gap-2 text-xl font-bold'>{title}</p>
+                <div className='flex items-center gap-2'>
+                    <p className='flex gap-2 text-xl font-bold'>{title}</p>
+                </div>
                 <div>{description}</div>
             </CardContent>
             <CardFooter className='flex items-center justify-center'>
@@ -39,11 +51,25 @@ function ProjectCard({ title, imageUrl, description, technologies, githubUrl }: 
                         <div className='rounded-lg border bg-secondary p-1'>{tech}</div>
                     ))}
                 </div>
-                <Button className='ml-auto' asChild>
-                    <a href={githubUrl} className='flex items-center justify-center'>
-                        View Project <GitHub />
-                    </a>
-                </Button>
+                <div className='flex gap-2'>
+                    {projectUrl && (
+                        <Button variant={'outline'}>
+                            <a href={projectUrl} rel='noopener noreferrer' target='_blank'>
+                                View Page
+                            </a>
+                            <div className='flex items-center justify-center rounded-xl bg-green-300 p-1'></div>
+                        </Button>
+                    )}
+                    <Button className='ml-auto' asChild>
+                        <a
+                            href={githubUrl}
+                            className='flex items-center justify-center'
+                            rel='noopener noreferrer'
+                            target='_blank'>
+                            View Project <GitHub />
+                        </a>
+                    </Button>
+                </div>
             </CardFooter>
         </Card>
     );
