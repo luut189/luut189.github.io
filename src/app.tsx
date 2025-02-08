@@ -19,7 +19,7 @@ export default function App() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
-                        className='flex w-full flex-col items-center justify-center gap-10 p-4'>
+                        className='flex w-full flex-col items-center justify-center gap-5 p-4'>
                         <Routes location={location} key={location.pathname}>
                             <Route path='/' element={<Homepage />} />
                             <Route path='/projects' element={<ProjectPage />} />

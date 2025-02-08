@@ -1,4 +1,8 @@
 import { ProjectCard, ProjectCardProps } from '@/components/project-card';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const projects: ProjectCardProps[] = [
     {
@@ -28,17 +32,61 @@ const projects: ProjectCardProps[] = [
 ];
 
 export default function ProjectPage() {
+    const [item, setItem] = useState(0);
+
+    const handleManualNavigation = (direction: 'prev' | 'next') => {
+        if (direction === 'prev') {
+            setItem((prev) => (prev > 0 ? prev - 1 : projects.length - 1));
+        } else {
+            setItem((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
+        }
+    };
+
     return (
         <>
-            {projects.map((project) => (
-                <ProjectCard
-                    title={project.title}
-                    imageUrl={project.imageUrl}
-                    description={project.description}
-                    technologies={project.technologies}
-                    githubUrl={project.githubUrl}
-                />
-            ))}
+            <AnimatePresence mode='wait'>
+                <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -50 }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                    className='flex w-full justify-center'>
+                    <ProjectCard
+                        title={projects[item].title}
+                        imageUrl={projects[item].imageUrl}
+                        description={projects[item].description}
+                        technologies={projects[item].technologies}
+                        githubUrl={projects[item].githubUrl}
+                        projectUrl={projects[item].projectUrl}
+                    />
+                </motion.div>
+            </AnimatePresence>
+
+            <motion.div
+                className='h-1 rounded bg-foreground'
+                initial={{ width: '0%' }}
+                animate={{ width: `${((item + 1) / projects.length) * 100}%` }}
+                transition={{ duration: 0.5 }}
+            />
+
+            <div className='flex items-center justify-center gap-4'>
+                <Button
+                    variant='outline'
+                    size='icon'
+                    onClick={() => handleManualNavigation('prev')}>
+                    <ChevronLeft />
+                </Button>
+                <div className='rounded-md border p-2'>
+                    {item + 1} / {projects.length}
+                </div>
+                <Button
+                    variant='outline'
+                    size='icon'
+                    onClick={() => handleManualNavigation('next')}>
+                    <ChevronRight />
+                </Button>
+            </div>
         </>
     );
 }
