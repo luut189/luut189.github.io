@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router';
 
 const routes = [
-    { display: 'About', href: '/about', external: false },
     { display: 'Projects', href: '/projects', external: false },
     { display: 'Resume', href: '/resume.pdf', external: true },
 ];

@@ -1,4 +1,4 @@
-import { GitHub, Instagram } from '@/components/ui/icons';
+import { GitHub, LinkedIn } from '@/components/ui/icons';
 import { Mail } from 'lucide-react';
 
 const iconClassName = 'h-8 w-8';
@@ -9,8 +9,8 @@ const contacts = [
         href: 'https://github.com/luut189',
     },
     {
-        display: <Instagram className={iconClassName} />,
-        href: 'https://www.instagram.com/_kyzeeeeel/',
+        display: <LinkedIn className={iconClassName} />,
+        href: 'https://www.linkedin.com/in/luut189/',
     },
     {
         display: <Mail className={iconClassName} />,
