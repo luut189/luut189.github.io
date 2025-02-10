@@ -11,7 +11,7 @@ export default function App() {
     return (
         <div className='flex min-h-screen flex-col'>
             <Navbar />
-            <main className='mx-auto flex w-2/3 flex-1 flex-col items-center justify-center'>
+            <main className='mx-auto flex w-full flex-1 flex-col items-center justify-center sm:w-2/3'>
                 <AnimatePresence mode='wait'>
                     <motion.div
                         key={location.pathname}
