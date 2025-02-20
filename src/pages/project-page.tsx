@@ -9,7 +9,7 @@ const projects: ProjectCardProps[] = [
         title: 'AniDis - Anime Discussion Platform',
         imageUrl: '/projects/anime-discuss.png',
         description: [
-            'AnimeThread is a MERN stack-based platform where anime fans can engage in threaded discussions about their favorite series.',
+            'AniDis is a MERN stack-based platform where anime fans can engage in threaded discussions about their favorite series.',
             'It offers daily updates on the latest episodes, highlights trending anime, and provides dedicated threads for specific shows, allowing users to discuss, share opinions, and stay connected to the anime community.',
         ].join(' '),
         technologies: ['MongoDB', 'Express', 'React', 'Node.js'],
