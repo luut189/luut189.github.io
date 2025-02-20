@@ -6,26 +6,33 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const projects: ProjectCardProps[] = [
     {
-        title: 'Anime Discussion Forum',
+        title: 'AniDis - Anime Discussion Platform',
         imageUrl: '/projects/anime-discuss.png',
-        description:
-            'A MERN stack-powered anime forum where fans can discuss, track, and pin favorite anime. It features daily anime highlights, checklists, watch lists, and interactive discussions, all in a sleek and responsive design.',
-        technologies: ['MongoDB', 'Express', 'Node.js', 'React'],
+        description: [
+            'AnimeThread is a MERN stack-based platform where anime fans can engage in threaded discussions about their favorite series.',
+            'It offers daily updates on the latest episodes, highlights trending anime, and provides dedicated threads for specific shows, allowing users to discuss, share opinions, and stay connected to the anime community.',
+        ].join(' '),
+        technologies: ['MongoDB', 'Express', 'React', 'Node.js'],
+        projectUrl: 'https://anime-discuss.onrender.com/',
         githubUrl: 'https://github.com/luut189/anime-discuss',
     },
     {
         title: 'Tetris Clone (Biquadris)',
         imageUrl: '/projects/biquadris.png',
-        description:
-            'A Tetris game developed using C++ with a focus on Software Development Lifecycle (SDLC), including planning, UML modeling, testing, and deployment. Implemented Object-Oriented Programming (OOP) principles with design patterns like Observer, Decorator, and Factory for maintainability.',
+        description: [
+            'A Tetris game developed using C++ with a focus on Software Development Lifecycle (SDLC), including planning, UML modeling, testing, and deployment.',
+            'Implemented Object-Oriented Programming (OOP) principles with design patterns like Observer, Decorator, and Factory for maintainability.',
+        ].join(' '),
         technologies: ['C++', 'Make', 'Valgrind'],
         githubUrl: 'https://github.com/ntung110/cs246-f24-biquadris',
     },
     {
         title: '2D Game',
         imageUrl: '/projects/2d-game.png',
-        description:
-            'A top-down 2D game built in Java, demonstrating performance optimizations for handling over 10,000 entities. Applied Object-Oriented Programming principles to enhance entity development and maintainability.',
+        description: [
+            'A top-down 2D game built in Java, demonstrating performance optimizations for handling over 10,000 entities.',
+            'Applied Object-Oriented Programming principles to enhance entity development and maintainability.',
+        ].join(' '),
         technologies: ['Java', 'Javadoc'],
         githubUrl: 'https://github.com/luut189/2DGame',
     },
