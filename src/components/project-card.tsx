@@ -48,10 +48,10 @@ function ProjectCard({
             <CardFooter className='flex items-center justify-center'>
                 <div className='mr-auto flex flex-row flex-wrap gap-2'>
                     {technologies.map((tech) => (
-                        <div className='rounded-lg border bg-secondary p-1'>{tech}</div>
+                        <div className='rounded-lg bg-primary/10 p-1'>{tech}</div>
                     ))}
                 </div>
-                <div className='flex gap-2'>
+                <div className='flex flex-wrap justify-end gap-2'>
                     {projectUrl && (
                         <Button variant={'outline'}>
                             <a href={projectUrl} rel='noopener noreferrer' target='_blank'>
