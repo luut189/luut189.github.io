@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
     title: string;
-    imageUrl: string;
+    imageUrl?: string;
     description: string;
     technologies: string[];
     githubUrl?: string;
@@ -54,10 +54,14 @@ function ProjectCard({
                 <div className='flex flex-wrap justify-end gap-2'>
                     {projectUrl && (
                         <Button variant={'outline'}>
-                            <a href={projectUrl} rel='noopener noreferrer' target='_blank'>
+                            <a
+                                href={projectUrl}
+                                rel='noopener noreferrer'
+                                target='_blank'
+                                className='flex items-center justify-center gap-2'>
                                 View Page
+                                <div className='flex items-center justify-center rounded-xl bg-green-300 p-1'></div>
                             </a>
-                            <div className='flex items-center justify-center rounded-xl bg-green-300 p-1'></div>
                         </Button>
                     )}
                     <Button className='ml-auto' asChild>
