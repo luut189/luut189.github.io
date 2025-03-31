@@ -6,12 +6,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const projects: ProjectCardProps[] = [
     {
+        title: 'Kyzen - LWJGL-based 2D Game Engine',
+        imageUrl: '/projects/kyzen.png',
+        description: [
+            'Developed a 2D game engine with batch rendering, optimizing the rendering of multiple objects in a single batch for improved performance.',
+            'Utilized Object-Oriented Programming (OOP) principles to create scalable software, implementing design patterns like Builder and Singleton to ensure modularity and maintainability.',
+            'Implemented an Entity-Component System (ECS), providing a modular and extendable architecture for flexible game object composition.',
+            'Integrated texture atlas support, enabling efficient texture management for sprites and tiles, reducing draw calls.',
+        ],
+        technologies: ['Java', 'LWJGL', 'OpenGL', 'Maven'],
+        githubUrl: 'https://github.com/luut189/kyzen',
+    },
+    {
         title: 'AniDis - Anime Discussion Platform',
         imageUrl: '/projects/anime-discuss.png',
         description: [
             'AniDis is a MERN stack-based platform where anime fans can engage in threaded discussions about their favorite series.',
             'It offers daily updates on the latest episodes, highlights trending anime, and provides dedicated threads for specific shows, allowing users to discuss, share opinions, and stay connected to the anime community.',
-        ].join(' '),
+        ],
         technologies: ['MongoDB', 'Express', 'React', 'Node.js'],
         projectUrl: 'https://anime-discuss.onrender.com/',
         githubUrl: 'https://github.com/luut189/anime-discuss',
@@ -22,7 +34,7 @@ const projects: ProjectCardProps[] = [
         description: [
             'A Tetris game developed using C++ with a focus on Software Development Lifecycle (SDLC), including planning, UML modeling, testing, and deployment.',
             'Implemented Object-Oriented Programming (OOP) principles with design patterns like Observer, Decorator, and Factory for maintainability.',
-        ].join(' '),
+        ],
         technologies: ['C++', 'Make', 'Valgrind'],
         githubUrl: 'https://github.com/ntung110/cs246-f24-biquadris',
     },
@@ -32,7 +44,7 @@ const projects: ProjectCardProps[] = [
         description: [
             'A top-down 2D game built in Java, demonstrating performance optimizations for handling over 10,000 entities.',
             'Applied Object-Oriented Programming principles to enhance entity development and maintainability.',
-        ].join(' '),
+        ],
         technologies: ['Java', 'Javadoc'],
         githubUrl: 'https://github.com/luut189/2DGame',
     },

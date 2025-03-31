@@ -1,13 +1,14 @@
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { GitHub } from '@/components/ui/icons';
-import { Image } from 'lucide-react';
 import { cn } from '@/lib/utils';
+
+import { Image } from 'lucide-react';
 
 interface ProjectCardProps {
     title: string;
     imageUrl?: string;
-    description: string;
+    description: string[];
     technologies: string[];
     githubUrl?: string;
     projectUrl?: string;
@@ -43,7 +44,11 @@ function ProjectCard({
                 <div className='flex items-center gap-2'>
                     <p className='flex gap-2 text-xl font-bold'>{title}</p>
                 </div>
-                <div>{description}</div>
+                <div className='flex flex-col gap-2'>
+                    {description.map((desc) => (
+                        <p>{desc}</p>
+                    ))}
+                </div>
             </CardContent>
             <CardFooter className='flex items-center justify-center'>
                 <div className='mr-auto flex flex-row flex-wrap gap-2'>
