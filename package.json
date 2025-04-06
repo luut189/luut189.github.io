@@ -5,11 +5,10 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc -b && vite build --outDir docs",
+        "build": "tsc -b && vite build",
         "prettier": "prettier --write .",
         "lint": "eslint .",
-        "preview": "vite preview",
-        "deploy": "git checkout gh-pages && git pull origin main && npm run build && git add . && git commit -m \"build: latest change\" && git push && git checkout main"
+        "preview": "vite preview"
     },
     "dependencies": {
         "@radix-ui/react-avatar": "^1.1.3",
